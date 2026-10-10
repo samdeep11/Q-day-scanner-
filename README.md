@@ -15,6 +15,6 @@ Free tool to check if your domain is quantum-vulnerable in 10 sec.
 ### Tech
 Python + sslyze + oqs
 
-Built in public from Agra, India 🇮🇳
+Built in public from India 🇮🇳
 
 Day 1/30 #BuildInPublic
