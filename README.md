@@ -1,20 +1,14 @@
+# Q-Day Scanner 🚀
+Free tool to check if your domain is Quantum-vulnerable - 10 sec audit
 
-# Q-Day Scanner 🚨
-
-Free tool to check if your domain is quantum-vulnerable in 10 sec.
-
-### Why?
-80% sites still use RSA-2048. Quantum computer = broken. NIST says migrate by 2030.
+Built from India UP on Phone 📱
 
 ### What it does?
-- Scans TLS ciphers
-- Flags RSA/ECDSA as HIGH RISK
-- Gives PQC fix (Kyber/Dilithium)
-- PDF report
+Scans any website and tells if it's ready for Quantum attacks.
 
-### Tech
-Python + sslyze + oqs
+### How to use?
+1. Enter domain
+2. Get risk score
 
-Built in public from India 🇮🇳
-
-Day 1/30 #BuildInPublic
+### Founder
+Sandeep (@samdeep11) - Building quantum-safe India
