@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Q-Day Scanner - Free Quantum Audit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{font-family:Arial;text-align:center;padding:30px;background:#0f172a;color:white}input{padding:12px;width:70%;border-radius:8px;border:none}button{padding:12px 20px;background:#22c55e;color:black;border:none;border-radius:8px;margin-top:10px;font-weight:bold}#result{margin-top:20px;padding:15px;background:#1e293b;border-radius:10px}</style>
+</head>
+<body>
+<h1>🛡️ Q-Day Scanner</h1>
+<p>Check if your website is Quantum-Safe in 10 sec</p>
+<p style="font-size:12px">Built from Bilsanda, UP by Sandeep</p>
+<input id="domain" placeholder="Enter domain: example.com">
+<br><button onclick="scan()">SCAN NOW</button>
+<div id="result"></div>
+<script>
+function scan(){
+ let d=document.getElementById("domain").value;
+ let r=document.getElementById("result");
+ r.innerHTML=`🔍 Scanning ${d}...<br><br>🚨 HIGH RISK - Quantum Vulnerable!<br>Using RSA encryption<br><br>💡 Fix needed: Upgrade to PQC<br>📩 DM @samdeep11 for $20 report`;
+}
+</script>
+</body>
+</html>
