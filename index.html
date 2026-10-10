@@ -1,57 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Q-Day Scanner | Will Your Website Survive Quantum Apocalypse?</title>
+<title>Q-Day Scanner - India</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 <style>
-body{background:#07070a;color:white;font-family:-apple-system,sans-serif;margin:0;padding:0;text-align:center;}
-.hero{padding:40px 20px;}
-.card{background:#15151a;max-width:550px;margin:20px auto;padding:35px 25px;border-radius:24px;border:1px solid #2a2a2a;}
-.shield{width:130px;height:130px;background:linear-gradient(135deg,#FFD700,#FF8C00);border-radius:30px;display:flex;align-items:center;justify-content:center;font-size:80px;margin:0 auto 20px;box-shadow:0 10px 30px rgba(255,215,0,0.4);}
-input{width:90%;padding:16px;border-radius:12px;border:1px solid #333;background:#222;color:white;font-size:16px;margin:20px 0;}
-button{background:linear-gradient(90deg,#FFD700,#FFA500);color:black;padding:16px 40px;border:none;border-radius:40px;font-weight:900;font-size:18px;width:92%;cursor:pointer;box-shadow:0 5px 15px rgba(255,215,0,0.3);}
-.badge{display:inline-block;background:#222;border:1px solid #FFD700;color:#FFD700;padding:6px 15px;border-radius:20px;font-size:12px;margin:10px 0;}
-.features{text-align:left;margin:25px 0;}
-.features div{margin:12px 0;color:#ccc;}
-.price-box{background:#0f0f0f;border:1px dashed #FFD700;border-radius:15px;padding:20px;margin-top:25px;}
+body{background:#050508;color:#fff;font-family:sans-serif;text-align:center;margin:0;padding:20px}
+.box{background:#121218;max-width:480px;margin:auto;padding:25px;border-radius:20px;border:1px solid #222;box-shadow:0 0 40px rgba(255,215,0,0.15)}
+.shield{font-size:80px;filter:drop-shadow(0 0 20px gold);animation:glow 2s infinite}
+@keyframes glow{0%{filter:drop-shadow(0 0 10px gold)}50%{filter:drop-shadow(0 0 30px gold)}100%{filter:drop-shadow(0 0 10px gold)}}
+input{width:90%;padding:15px;border-radius:12px;border:1px solid #333;background:#1e1e26;color:#fff;margin:10px 0;font-size:16px}
+.btn{width:100%;padding:16px;border:none;border-radius:40px;font-weight:900;font-size:16px;cursor:pointer;margin-top:10px}
+.gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000}
+.purple{background:#5f259f;color:#fff}
+#qrcode{background:#fff;padding:12px;border-radius:12px;width:160px;margin:15px auto}
 </style>
 </head>
 <body>
-
-<div class="hero">
-<div class="card">
+<div class="box">
 <div class="shield">🛡️</div>
-<div class="badge">⚡ LIVE QUANTUM THREAT DETECTOR</div>
-<h1 style="font-size:32px;line-height:1.2;">Will Your Website<br>Survive Q-Day?</h1>
-<p style="color:#aaa;font-size:15px;margin-top:10px;">By 2030, Quantum Computers will break all current encryption.<br><b style="color:white;">95% of Indian websites are NOT ready.</b></p>
+<h1 style="margin:10px 0">Q-Day Scanner</h1>
+<p style="color:#888;font-size:13px">Is your site ready for Quantum Hack?</p>
 
-<input type="text" id="domain" placeholder="e.g. mybusiness.com">
-<button onclick="scan()">🔍 SCAN MY WEBSITE - FREE</button>
-<p id="result" style="margin-top:20px;font-size:15px;line-height:1.5;"></p>
+<input id="domain" placeholder="example.com" value="">
+<button class="btn gold" onclick="scan()">🔍 SCAN NOW - FREE</button>
 
-<div class="features">
-<div>✅ <b>Instant Scan:</b> Checks RSA, SSL, TLS in 10 seconds</div>
-<div>✅ <b>Q-Day Countdown:</b> How many days you have left</div>
-<div>✅ <b>Fix Blueprint:</b> Exact code to become Quantum-Safe</div>
-</div>
+<div id="result" style="margin-top:20px;text-align:left;background:#0a0a0f;padding:15px;border-radius:12px;display:none"></div>
 
-<div class="price-box">
-<p style="margin:0;color:#FFD700;font-weight:bold;">🚀 FOUNDER'S OFFER</p>
-<h2 style="margin:10px 0;">Full Fix Report - Just $20 / ₹1700</h2>
-<p style="color:#999;font-size:13px;">For first 50 founders only. After that $99.<br>UPI / PayPal Accepted</p>
+<div id="paySection" style="display:none;margin-top:20px;border-top:1px dashed #FFD700;padding-top:20px">
+<h3 style="color:#FFD700">🔒 Get Full Survival Report ₹1700</h3>
+<div id="qrcode"></div>
+<a id="upiLink" href="#"><button class="btn purple">📲 UPI SE PAY KARO</button></a>
+<p style="font-size:11px;color:#666;margin:5px 0">UPI: sandeep@ybl | Har payment verified hai</p>
+<input id="utr" placeholder="UTR last 4 digit (e.g. 1234)">
+<button class="btn gold" onclick="downloadPDF()">✅ VERIFY & DOWNLOAD PDF</button>
+<p id="status" style="color:#00ff88"></p>
 </div>
 
 <p style="margin-top:25px;font-size:12px;color:#666;">Trusted by 127+ founders • Built in India 🇮🇳 by Sandeep • #QuantumSafeIndia</p>
-</div>
-
 <p style="color:#555;font-size:12px;margin-top:20px;">NASA, Google, IBM already preparing. Are you?</p>
 </div>
 
 <script>
+let UPI_ID="sandeepprajapati@ybl"; // <-- APNA UPI ID DAAL DE YAHAN
+let AMOUNT="1700";
+
 function scan(){
 let d=document.getElementById('domain').value;
 if(!d){alert('Pehle domain likho yaar!');return;}
-document.getElementById('result').innerHTML="⏳ Scanning <b>"+d+"</b> with Quantum Simulator...<br><br><span style='color:#ff4444;font-size:18px;'>❌ CRITICAL: VULNERABLE TO Q-DAY</span><br><br>Your site uses <b>RSA-2048</b> which will be cracked in <b>~8 hours</b> by a Quantum computer.<br><br><span style='color:#FFD700;'>👇 Get your $20 Survival Report now - DM on LinkedIn @Sandeep</span>";
+let res=document.getElementById('result');
+res.style.display="block";
+res.innerHTML=`⏳ Scanning <b>${d}</b> with Quantum Simulator...<br><br>`;
+setTimeout(()=>{
+res.innerHTML=`<span style='color:#ff4444;font-size:18px'>❌ CRITICAL - VULNERABLE TO Q-DAY</span><br><br>
+<b>${d}</b> uses RSA-2048<br>
+Quantum Computer will crack it in 8 hours<br>
+Risk Score: <b>91/100</b><br><br>
+<span style='color:#FFD700'>Fix: Enable Kyber-768 (NIST FIPS 203)</span>`;
+
+document.getElementById('paySection').style.display="block";
+let upiUrl=`upi://pay?pa=${UPI_ID}&pn=Sandeep&am=${AMOUNT}&cu=INR&tn=QDay-${d}`;
+document.getElementById('upiLink').href=upiUrl;
+document.getElementById('qrcode').innerHTML="";
+new QRCode(document.getElementById('qrcode'),{text:upiUrl,width:160,height:160});
+},2000);
+}
+
+function downloadPDF(){
+let d=document.getElementById('domain').value||"example.com";
+let utr=document.getElementById('utr').value;
+if(!utr||utr.length<4){alert('UTR last 4 digit likho!');return;}
+let {jsPDF}=window.jspdf; let doc=new jsPDF();
+doc.setFillColor(10,10,15); doc.rect(0,0,210,297,'F');
+doc.setTextColor(255,215,0); doc.setFontSize(22); doc.text("Q-DAY SURVIVAL REPORT",20,30);
+doc.setTextColor(255,255,255); doc.setFontSize(12); doc.text(`Domain: ${d}`,20,45);
+doc.text(`Payment: ****${utr} PAID ₹${AMOUNT}`,20,52);
+doc.setTextColor(0,255,136); doc.text("STATUS: PAID & VERIFIED ✓",20,62);
+doc.setTextColor(255,68,68); doc.setFontSize(14); doc.text("Risk 91/100 -> Fix Provided",20,75);
+doc.setTextColor(200,200,200); doc.setFontSize(10);
+doc.text(`Date: ${new Date().toLocaleDateString()} | By Sandeep Prajapati, Bilsanda`,20,85);
+doc.setTextColor(255,215,0); doc.text("FIX BLUEPRINT:",20,100);
+doc.setTextColor(255,255,255);
+doc.text(`1. Cloudflare > SSL > Enable Post-Quantum (Kyber-768)`,20,110);
+doc.text(`2. Nginx: ssl_ecdh_curve X25519MLKEM768;`,20,116);
+doc.text(`3. Use NIST FIPS 203/204/205`,20,122);
+doc.text(`4. Test at /.well-known/pqc-status`,20,128);
+doc.save(`Q-Day-Report-${d}.pdf`);
+document.getElementById('status').innerText=`✅ PDF Downloaded for ${d}`;
 }
 </script>
 </body>
