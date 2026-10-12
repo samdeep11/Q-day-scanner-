@@ -1,4 +1,4 @@
-# Q-Day Scanner 🚀
+# Q-daycovegence-master🚀
 Free tool to check if your domain is Quantum-vulnerable - 10 sec audit
 
 Built in India by Sandeep 
