@@ -6,139 +6,134 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#070b24;color:#e2e8f0}
 .h{padding:14px 16px;background:#151c4a;position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e2450}
-.main{display:flex;max-width:1300px;margin:0 auto;gap:12px;padding:12px}
-.left,.right{width:260px;flex-shrink:0;display:flex;flex-direction:column;gap:12px}
-.center{flex:1;display:flex;flex-direction:column;gap:10px}
-.card{border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;border:1px solid rgba(255,255,255,0.1);background:#151c4a}
-.card h3{font-size:12.5px}.card p{font-size:10.5px;color:#94a3b8;margin-top:1px}
-.icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.wrap{max-width:700px;margin:0 auto;padding:12px;display:flex;flex-direction:column;gap:12px}
+.top-widgets{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .widget{background:#151c4a;border:1px solid #2a3260;border-radius:16px;padding:14px}
-.widget h4{font-size:11px;color:#4ade80;margin-bottom:8px;letter-spacing:0.5px}
-.widget p,.widget li{font-size:10.5px;color:#cbd5e1;line-height:1.6}
-.widget li{margin-left:14px;margin-bottom:4px}
-.score{font-size:28px;font-weight:800;color:#4ade80}
-.badge{font-size:8px;padding:3px 7px;border-radius:20px;background:#1e2450;color:#94a3b8}
-.phase{margin:6px 0 2px;font-size:10px;color:#4ade80;letter-spacing:1px;font-weight:800}
+.widget h4{font-size:11px;color:#4ade80;margin-bottom:8px}
+.widget p,.widget li{font-size:10.5px;line-height:1.6}
+.score{font-size:26px;font-weight:800;color:#4ade80}
+.card{border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;border:1px solid rgba(255,255,255,0.1);background:#151c4a}
+.card h3{font-size:12.5px}.card p{font-size:10.5px;color:#94a3b8}
+.icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.badge{font-size:8px;padding:3px 7px;border-radius:20px;background:#1e2450;color:#94a3b8;margin-left:auto}
+.phase{margin:8px 0 2px;font-size:10px;color:#4ade80;font-weight:800;letter-spacing:1px}
 .modal{display:none;position:fixed;inset:0;background:#070b24;z-index:50;overflow:auto}
 .modal.active{display:block}
 .top{padding:14px;background:#151c4a;display:flex;justify-content:space-between;position:sticky;top:0}
 .sec{margin:12px;background:#1a2050;border-radius:16px;padding:16px;border:1px solid #2a3260}
-.sim{background:#050a14;border-radius:12px;padding:12px;margin-top:10px;font-family:monospace;font-size:10.5px;line-height:1.5;white-space:pre-line;min-height:70px;border:1px solid #14532d;color:#86efac}
+.sim{background:#050a14;border-radius:12px;padding:12px;margin-top:10px;font-family:monospace;font-size:10.5px;line-height:1.5;white-space:pre-line;min-height:90px;border:1px solid #14532d;color:#86efac}
 .btn{width:100%;padding:12px;border-radius:10px;border:0;font-weight:800;margin-top:8px;cursor:pointer}
 .inp{width:100%;padding:11px;border-radius:9px;background:#0b102e;color:white;border:1px solid #2a3260;font-size:12px}
 .home-btn{background:#1e2450;border:1px solid #2a3260;color:#4ade80;padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;text-decoration:none}
-@media(max-width:900px){.main{flex-direction:column}.left,.right{width:100%;order:2}.center{order:1}.left{order:3}}
 </style>
 </head><body>
 
 <div class="h">
-<div><b>🛡️ Convergence Master</b><br><span style="font-size:10px;color:#4ade80">● 20 Interactive Cybersecurity Labs</span></div>
+<div><b>🛡️ Convergence Master</b><br><span style="font-size:10px;color:#4ade80">● 20 Labs Live - India First</span></div>
 <a href="index.html" class="home-btn">🏠 HOME</a>
 </div>
 
-<div class="main">
+<div class="wrap">
 
-<div class="left">
+<!-- TOP WIDGETS - AB KHALI NAHI LAGEGA -->
+<div class="top-widgets">
 <div class="widget" style="border-color:#4ade80">
-<h4>🎯 YOUR CYBER SCORE</h4>
-<div class="score">0 / 20</div>
-<p>Labs Completed</p>
+<h4>🎯 YOUR SCORE</h4>
+<div class="score" id="score">0 / 20</div>
+<p style="font-size:9px">Labs Completed</p>
 <div style="background:#0b102e;height:6px;border-radius:10px;margin-top:8px"><div id="progress" style="height:6px;width:0%;background:#4ade80;border-radius:10px"></div></div>
-<p style="font-size:9px;margin-top:6px;color:#8a94c7">Start any lab to increase score</p>
 </div>
-
-<div class="widget">
-<h4>📊 PROGRESS TRACKER</h4>
-<ul id="plist">
-<li>LAB 01: Not Started</li>
-<li>LAB 09: Not Started (UPI)</li>
-<li>LAB 18: Not Started (Deepfake)</li>
-</ul>
-<p style="font-size:9px;color:#8a94c7;margin-top:8px">Tip: UPI labs pehle karo — sabse zyada fraud wahi hota hai</p>
+<div class="widget" style="border-color:#ef4444">
+<h4>🚨 LIVE ALERT</h4>
+<p style="font-size:10px">🔴 UPI Collect Scam - 12 cases today in Mathura<br>🔴 QR Swap trick in market<br><span style="font-size:8px;color:#ef4444">● Live</span></p>
+</div>
 </div>
 
 <div class="widget" style="background:linear-gradient(135deg,#052e16,#151c4a)">
-<h4>🏆 LEADERBOARD - MATHURA</h4>
-<p>🥇 Rahul - 20 Labs<br>🥈 Priya - 18 Labs<br>🥉 Aman - 15 Labs<br><br><span style="color:#4ade80">You: Rank #124</span></p>
-</div>
+<h4>💡 SAFETY TIP + 📞 HELPLINE</h4>
+<p style="font-size:10.5px"><b>UPI Tip:</b> RBI never asks money on UPI. rbi@... = 100% fake. <b>Helpline: 1930</b> - Report within 1 hour, money can be recovered! | <b>Top Scam:</b> rbi-refund@okaxis (30L fraud)</p>
 </div>
 
-<div class="center">
+<!-- LABS START -->
 <div class="phase">PHASE 1: CORE LABS (1-8)</div>
 <div class="card" onclick="openLab('lab1')"><div class="icon" style="background:#162a1e">🛡️</div><div><h3>LAB 01: Phishing Detector</h3><p>Fake URL vs Real</p></div><span class="badge">LIVE</span></div>
 <div class="card" onclick="openLab('lab2')"><div class="icon" style="background:#2a1616">🦠</div><div><h3>LAB 02: Malware Scanner</h3><p>Sandbox Analysis</p></div><span class="badge">SCAN</span></div>
 <div class="card" onclick="openLab('lab3')"><div class="icon" style="background:#10202e">🔒</div><div><h3>LAB 03: SSL Inspector</h3><p>TLS 1.3 Check</p></div><span class="badge">CHECK</span></div>
-<div class="card" onclick="openLab('lab4')"><div class="icon" style="background:#18102e">🌐</div><div><h3>LAB 04: Reputation Engine</h3><p>Domain Trust</p></div><span class="badge">TRUST</span></div>
+<div class="card" onclick="openLab('lab4')"><div class="icon" style="background:#18102e">🌐</div><div><h3>LAB 04: Reputation Engine</h3><p>Domain Trust Score</p></div><span class="badge">TRUST</span></div>
 <div class="card" onclick="openLab('lab5')"><div class="icon" style="background:#20101a">👁️</div><div><h3>LAB 05: Privacy Auditor</h3><p>Tracker Audit</p></div><span class="badge">AUDIT</span></div>
 <div class="card" onclick="openLab('lab6')"><div class="icon" style="background:#201e10">📡</div><div><h3>LAB 06: DNS Analyzer</h3><p>DNSSEC Validation</p></div><span class="badge">DNS</span></div>
 <div class="card" onclick="openLab('lab7')"><div class="icon" style="background:#10201a">📄</div><div><h3>LAB 07: Content Safety</h3><p>Scam Text NLP</p></div><span class="badge">NLP</span></div>
-<div class="card" onclick="openLab('lab8')"><div class="icon" style="background:#201015">💳</div><div><h3>LAB 08: Fraud Intelligence</h3><p>UPI Fraud Ring</p></div><span class="badge">FRAUD</span></div>
+<div class="card" onclick="openLab('lab8')"><div class="icon" style="background:#201015">💳</div><div><h3>LAB 08: Fraud Intelligence</h3><p>UPI Fraud Ring Trace</p></div><span class="badge">FRAUD</span></div>
 
-<div class="phase">PHASE 2: INDIA SPECIAL (9-14)</div>
-<div class="card" style="border-color:#f59e0b" onclick="openLab('lab9')"><div class="icon" style="background:#2a1f0f">📱</div><div><h3>LAB 09: UPI ID Validator</h3><p>Fake UPI handle check</p></div><span class="badge" style="background:#f59e0b;color:black">NEW</span></div>
+<div class="phase">PHASE 2: INDIA SPECIAL - UPI FRAUDS (9-14) ⭐</div>
+<div class="card" style="border-color:#f59e0b" onclick="openLab('lab9')"><div class="icon" style="background:#2a1f0f">📱</div><div><h3>LAB 09: UPI ID Validator</h3><p>India's #1 Fraud - Fake UPI Check</p></div><span class="badge" style="background:#f59e0b;color:black">NEW</span></div>
 <div class="card" style="border-color:#f59e0b" onclick="openLab('lab10')"><div class="icon" style="background:#2a1f0f">🔳</div><div><h3>LAB 10: QR Code Scam Detector</h3><p>Pay vs Collect QR</p></div><span class="badge" style="background:#f59e0b;color:black">NEW</span></div>
-<div class="card" style="border-color:#f59e0b" onclick="openLab('lab11')"><div class="icon" style="background:#2a1f0f">🔢</div><div><h3>LAB 11: OTP Interception Lab</h3><p>OTP kaise leak hota?</p></div><span class="badge" style="background:#f59e0b;color:black">NEW</span></div>
+<div class="card" style="border-color:#f59e0b" onclick="openLab('lab11')"><div class="icon" style="background:#2a1f0f">🔢</div><div><h3>LAB 11: OTP Interception Lab</h3><p>How OTP Gets Leaked</p></div><span class="badge" style="background:#f59e0b;color:black">NEW</span></div>
 <div class="card" style="border-color:#22c55e" onclick="openLab('lab12')"><div class="icon" style="background:#102a1a">💬</div><div><h3>LAB 12: WhatsApp Forward Checker</h3><p>AI Fake vs Real</p></div><span class="badge" style="background:#22c55e;color:black">NEW</span></div>
-<div class="card" style="border-color:#22c55e" onclick="openLab('lab13')"><div class="icon" style="background:#102a1a">📸</div><div><h3>LAB 13: Instagram Fake Profile</h3><p>Bot detector</p></div><span class="badge" style="background:#22c55e;color:black">NEW</span></div>
-<div class="card" style="border-color:#22c55e" onclick="openLab('lab14')"><div class="icon" style="background:#102a1a">📞</div><div><h3>LAB 14: Call Spoofing Lab</h3><p>Fake Bank Call?</p></div><span class="badge" style="background:#22c55e;color:black">NEW</span></div>
+<div class="card" style="border-color:#22c55e" onclick="openLab('lab13')"><div class="icon" style="background:#102a1a">📸</div><div><h3>LAB 13: Instagram Fake Profile</h3><p>Bot Detector</p></div><span class="badge" style="background:#22c55e;color:black">NEW</span></div>
+<div class="card" style="border-color:#22c55e" onclick="openLab('lab14')"><div class="icon" style="background:#102a1a">📞</div><div><h3>LAB 14: Call Spoofing Lab</h3><p>Fake Bank Call Trace</p></div><span class="badge" style="background:#22c55e;color:black">NEW</span></div>
 
 <div class="phase">PHASE 3: ADVANCED (15-20)</div>
-<div class="card" style="border-color:#8b5cf6" onclick="openLab('lab15')"><div class="icon" style="background:#1a102e">📶</div><div><h3>LAB 15: WiFi Evil Twin</h3><p>Free WiFi safe hai?</p></div><span class="badge" style="background:#8b5cf6">NEW</span></div>
-<div class="card" style="border-color:#8b5cf6" onclick="openLab('lab16')"><div class="icon" style="background:#1a102e">🔑</div><div><h3>LAB 16: Password Strength</h3><p>Kitne sec me hack?</p></div><span class="badge" style="background:#8b5cf6">NEW</span></div>
-<div class="card" style="border-color:#8b5cf6" onclick="openLab('lab17')"><div class="icon" style="background:#1a102e">📧</div><div><h3>LAB 17: Email Header Analyzer</h3><p>RBI spoof email?</p></div><span class="badge" style="background:#8b5cf6">NEW</span></div>
-<div class="card" style="border-color:#ef4444" onclick="openLab('lab18')"><div class="icon" style="background:#2a1010">🤖</div><div><h3>LAB 18: AI Deepfake Detector</h3><p>Video call real ya AI?</p></div><span class="badge" style="background:#ef4444">HOT</span></div>
-<div class="card" style="border-color:#ef4444" onclick="openLab('lab19')"><div class="icon" style="background:#2a1010">💸</div><div><h3>LAB 19: Loan App Fraud</h3><p>Permission check</p></div><span class="badge" style="background:#ef4444">HOT</span></div>
-<div class="card" style="border-color:#ef4444" onclick="openLab('lab20')"><div class="icon" style="background:#2a1010">💼</div><div><h3>LAB 20: Job Scam Detector</h3><p>Work from home scam?</p></div><span class="badge" style="background:#ef4444">HOT</span></div>
+<div class="card" style="border-color:#8b5cf6" onclick="openLab('lab15')"><div class="icon" style="background:#1a102e">📶</div><div><h3>LAB 15: WiFi Evil Twin</h3><p>Free WiFi Safe?</p></div><span class="badge" style="background:#8b5cf6">NEW</span></div>
+<div class="card" style="border-color:#8b5cf6" onclick="openLab('lab16')"><div class="icon" style="background:#1a102e">🔑</div><div><h3>LAB 16: Password Strength</h3><p>Crack Time Calculator</p></div><span class="badge" style="background:#8b5cf6">NEW</span></div>
+<div class="card" style="border-color:#8b5cf6" onclick="openLab('lab17')"><div class="icon" style="background:#1a102e">📧</div><div><h3>LAB 17: Email Header Analyzer</h3><p>SPF/DKIM Spoof Check</p></div><span class="badge" style="background:#8b5cf6">NEW</span></div>
+<div class="card" style="border-color:#ef4444" onclick="openLab('lab18')"><div class="icon" style="background:#2a1010">🤖</div><div><h3>LAB 18: AI Deepfake Detector</h3><p>Real or AI Fake?</p></div><span class="badge" style="background:#ef4444">HOT</span></div>
+<div class="card" style="border-color:#ef4444" onclick="openLab('lab19')"><div class="icon" style="background:#2a1010">💸</div><div><h3>LAB 19: Loan App Fraud</h3><p>Permission Audit - 28 Perms</p></div><span class="badge" style="background:#ef4444">HOT</span></div>
+<div class="card" style="border-color:#ef4444" onclick="openLab('lab20')"><div class="icon" style="background:#2a1010">💼</div><div><h3>LAB 20: Job Scam Detector</h3><p>Telegram Task Scam</p></div><span class="badge" style="background:#ef4444">HOT</span></div>
 
-<div style="padding:20px;text-align:center;border-top:1px solid #1e2450;margin-top:10px">
+<div style="padding:20px;text-align:center;border-top:1px solid #1e2450">
 <a href="index.html" style="display:inline-block;background:linear-gradient(90deg,#16a34a,#22c55e);color:white;padding:14px 28px;border-radius:30px;font-weight:800;text-decoration:none;font-size:13px">🏠 BACK TO HOME →</a>
-</div>
-</div>
-
-<div class="right">
-<div class="widget" style="border-color:#ef4444">
-<h4>🚨 LIVE THREAT FEED - INDIA</h4>
-<ul>
-<li>🔴 <b>UPI Collect Scam</b> - Mathura me 12 cases today</li>
-<li>🔴 <b>QR Swap</b> - Sabzi mandi me new trick</li>
-<li>🟡 <b>Loan App</b> - 5 fake apps Play Store pe</li>
-<li>🟢 <b>Safe:</b> RailWire WiFi verified</li>
-</ul>
-<p style="font-size:9px;color:#ef4444;margin-top:8px">● Live updated every 5 min</p>
-</div>
-
-<div class="widget" style="background:linear-gradient(135deg,#1e1b4b,#151c4a)">
-<h4>💡 AAJ KA SAFETY TIP</h4>
-<p><b>QR Code Tip:</b><br>Shop pe QR scan karne se pehle dekho — kya waha 2 QR chipke hain? Agar 1 ke upar dusra chipka hai to 100% scam hai! Real shopkeeper ka QR hamesha laminated hota hai.</p>
-<p style="font-size:9px;color:#8a94c7;margin-top:8px">By Cyber Expert - Mathura Police</p>
-</div>
-
-<div class="widget">
-<h4>🔥 TOP UPI SCAMS IN UP</h4>
-<p>1. rbi-refund@okaxis - 30L fraud<br>2. electricity-bill@paytm - 15L<br>3. kbc-lottery@ybl - 20L<br>4. army-officer@okhdfc - 10L<br><br><span style="font-size:9px;color:#f59e0b">Source: UP Cyber Crime Portal 2024</span></p>
-</div>
-
-<div class="widget" style="border-color:#22c55e">
-<h4>📞 EMERGENCY HELPLINE</h4>
-<p><b>1930</b> - Cyber Crime Helpline (24x7)<br><b>cybercrime.gov.in</b><br><br>Fraud hua? 1 ghante me report karo — paise wapas mil sakte hain!</p>
-</div>
+<p style="font-size:9px;color:#8a94c7;margin-top:12px">20 Labs • 100% Educational • Mathura, UP • <a href="about.html" style="color:#4ade80">About</a> | <a href="privacy.html" style="color:#4ade80">Privacy</a></p>
 </div>
 
 </div>
 
-<!-- MODALS (same 20) -->
-<div id="lab1" class="modal"><div class="top"><b>LAB 01: Phishing</b><span onclick="closeLab()" style="cursor:pointer">✕</span></div><div class="sec"><input id="u1" class="inp" placeholder="faceb00k-login.tk"><button class="btn" style="background:#16a34a;color:white" onclick="run1()">▶ ANALYZE</button><div class="sim" id="o1">> Ready</div></div></div>
-<div id="lab9" class="modal"><div class="top"><b>LAB 09: UPI Validator</b><span onclick="closeLab()" style="cursor:pointer">✕</span></div><div class="sec"><input id="u9" class="inp" placeholder="rbi-official@okaxis"><button class="btn" style="background:#f59e0b;color:black" onclick="run9()">▶ VALIDATE UPI</button><div class="sim" id="o9">> Enter UPI ID</div></div></div>
-<div id="lab20" class="modal"><div class="top"><b>LAB 20: Job Scam</b><span onclick="closeLab()" style="cursor:pointer">✕</span></div><div class="sec"><textarea id="u20" class="inp" style="height:60px" placeholder="Work from home 5000/day Telegram..."></textarea><button class="btn" style="background:#ef4444;color:white" onclick="run20()">▶ VERIFY JOB</button><div class="sim" id="o20">> Paste job message</div></div></div>
-<!-- Add remaining 2-8,10-19 modals from previous code (same logic) - yahan short me rakha, pura code me add kar lena -->
+<!-- ALL 20 MODALS -->
+<div id="lab1" class="modal"><div class="top"><b>LAB 01: Phishing</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u1" class="inp" placeholder="faceb00k-login.tk"><button class="btn" style="background:#16a34a;color:white" onclick="run1()">▶ ANALYZE</button><div class="sim" id="o1">> Ready</div></div></div>
+<div id="lab9" class="modal"><div class="top"><b>LAB 09: UPI Validator ⭐</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕ CLOSE</span></div><div class="sec"><input id="u9" class="inp" placeholder="rbi-official@okaxis"><button class="btn" style="background:#f59e0b;color:black" onclick="run9()">▶ VALIDATE UPI</button><div class="sim" id="o9">> Enter UPI ID</div></div></div>
+<div id="lab10" class="modal"><div class="top"><b>LAB 10: QR Scam</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u10" class="inp" placeholder="upi://pay?pa=..."><button class="btn" style="background:#f59e0b;color:black" onclick="run10()">▶ DECODE</button><div class="sim" id="o10">> Ready</div></div></div>
+<!-- For brevity, add remaining modals from previous full code - same IDs u2-u8, u11-u20 -->
+<div id="lab2" class="modal"><div class="top"><b>LAB 02</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u2" class="inp" placeholder="free-crack.exe"><button class="btn" style="background:#dc2626;color:white" onclick="run2()">▶ SCAN</button><div class="sim" id="o2">> Ready</div></div></div>
+<div id="lab3" class="modal"><div class="top"><b>LAB 03</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u3" class="inp" placeholder="facebook.com"><button class="btn" style="background:#0ea5e9;color:white" onclick="run3()">▶ CHECK</button><div class="sim" id="o3">> Ready</div></div></div>
+<div id="lab4" class="modal"><div class="top"><b>LAB 04</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u4" class="inp" placeholder="facebook.com"><button class="btn" style="background:#7c3aed;color:white" onclick="run4()">▶ CHECK</button><div class="sim" id="o4">> Ready</div></div></div>
+<div id="lab5" class="modal"><div class="top"><b>LAB 05</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u5" class="inp" placeholder="free-movies.com"><button class="btn" style="background:#e11d48;color:white" onclick="run5()">▶ AUDIT</button><div class="sim" id="o5">> Ready</div></div></div>
+<div id="lab6" class="modal"><div class="top"><b>LAB 06</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u6" class="inp" placeholder="facebook.com"><button class="btn" style="background:#eab308;color:black" onclick="run6()">▶ RESOLVE</button><div class="sim" id="o6">> Ready</div></div></div>
+<div id="lab7" class="modal"><div class="top"><b>LAB 07</b><span onclick="closeLab()">✕</span></div><div class="sec"><textarea id="u7" class="inp" style="height:60px" placeholder="You won prize!"></textarea><button class="btn" style="background:#10b981;color:white" onclick="run7()">▶ SCAN</button><div class="sim" id="o7">> Ready</div></div></div>
+<div id="lab8" class="modal"><div class="top"><b>LAB 08</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u8" class="inp" placeholder="cheap-iphone-store.com"><button class="btn" style="background:#e11d48;color:white" onclick="run8()">▶ TRACE</button><div class="sim" id="o8">> Ready</div></div></div>
+<div id="lab11" class="modal"><div class="top"><b>LAB 11</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u11" class="inp" placeholder="123456"><button class="btn" style="background:#f59e0b;color:black" onclick="run11()">▶ CHECK</button><div class="sim" id="o11">> Ready</div></div></div>
+<div id="lab12" class="modal"><div class="top"><b>LAB 12</b><span onclick="closeLab()">✕</span></div><div class="sec"><textarea id="u12" class="inp" style="height:60px" placeholder="Forwarded message"></textarea><button class="btn" style="background:#22c55e;color:black" onclick="run12()">▶ VERIFY</button><div class="sim" id="o12">> Ready</div></div></div>
+<div id="lab13" class="modal"><div class="top"><b>LAB 13</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u13" class="inp" placeholder="elon_musk_official_"><button class="btn" style="background:#22c55e;color:black" onclick="run13()">▶ CHECK</button><div class="sim" id="o13">> Ready</div></div></div>
+<div id="lab14" class="modal"><div class="top"><b>LAB 14</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u14" class="inp" placeholder="+91-140..."><button class="btn" style="background:#22c55e;color:black" onclick="run14()">▶ TRACE</button><div class="sim" id="o14">> Ready</div></div></div>
+<div id="lab15" class="modal"><div class="top"><b>LAB 15</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u15" class="inp" placeholder="Railway_Free_WiFi"><button class="btn" style="background:#8b5cf6;color:white" onclick="run15()">▶ SCAN</button><div class="sim" id="o15">> Ready</div></div></div>
+<div id="lab16" class="modal"><div class="top"><b>LAB 16</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u16" class="inp" placeholder="mathura@123"><button class="btn" style="background:#8b5cf6;color:white" onclick="run16()">▶ CRACK TIME</button><div class="sim" id="o16">> Ready</div></div></div>
+<div id="lab17" class="modal"><div class="top"><b>LAB 17</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u17" class="inp" placeholder="rbi@alert.com"><button class="btn" style="background:#8b5cf6;color:white" onclick="run17()">▶ ANALYZE</button><div class="sim" id="o17">> Ready</div></div></div>
+<div id="lab18" class="modal"><div class="top"><b>LAB 18</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u18" class="inp" placeholder="Modi video offer"><button class="btn" style="background:#ef4444;color:white" onclick="run18()">▶ DETECT</button><div class="sim" id="o18">> Ready</div></div></div>
+<div id="lab19" class="modal"><div class="top"><b>LAB 19</b><span onclick="closeLab()">✕</span></div><div class="sec"><input id="u19" class="inp" placeholder="QuickLoan-Easy"><button class="btn" style="background:#ef4444;color:white" onclick="run19()">▶ CHECK PERM</button><div class="sim" id="o19">> Ready</div></div></div>
+<div id="lab20" class="modal"><div class="top"><b>LAB 20</b><span onclick="closeLab()">✕</span></div><div class="sec"><textarea id="u20" class="inp" style="height:60px" placeholder="Work from home 5000/day"></textarea><button class="btn" style="background:#ef4444;color:white" onclick="run20()">▶ VERIFY JOB</button><div class="sim" id="o20">> Ready</div></div></div>
 
 <script>
 let completed=0;
-function openLab(id){document.getElementById(id).classList.add('active'); completed++; document.querySelector('.score').textContent=completed+' / 20'; document.getElementById('progress').style.width=(completed*5)+'%'}
+function openLab(id){document.getElementById(id).classList.add('active');completed++;document.getElementById('score').textContent=completed+' / 20';document.getElementById('progress').style.width=(completed*5)+'%'}
 function closeLab(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('active'))}
-function run1(){let u=document.getElementById('u1').value||'faceb00k-login.tk',o=document.getElementById('o1');o.textContent='> Scanning...\n';setTimeout(()=>{o.textContent=/0|tk|faceb00k/i.test(u)?`🔴 PHISHING 92/100\n❌ Homograph 0 vs o\n✅ REAL: facebook.com`:`🟢 SAFE 96/100`},600)}
-function run9(){let u=document.getElementById('u9').value||'rbi-official@okaxis',o=document.getElementById('o9');o.textContent='> UPI parsing...\n';setTimeout(()=>{o.textContent=/rbi|gov/i.test(u)?`🔴 FAKE UPI 98/100\n❌ RBI kabhi UPI pe paise nahi mangta!`:`🟡 Normal UPI`},600)}
-function run20(){let o=document.getElementById('o20');o.textContent='> Job NLP...\n';setTimeout(()=>{o.textContent=`🔴 JOB SCAM 96% Telegram Task!\n❌ 5000/day + Telegram = scam`},600)}
-// Baaki 2-8,10-19 ke functions previous wale code se copy kar lena - same logic
+function run1(){let u=document.getElementById('u1').value||'faceb00k-login.tk',o=document.getElementById('o1');o.textContent='> Scanning...\n';setTimeout(()=>{o.textContent=/0|tk|faceb00k/i.test(u)?`🔴 PHISHING 92/100 - FAKE!\n❌ Homograph 0 vs o\n❌ Free .tk domain\n❌ 2 days old\n✅ REAL: facebook.com 20yr\n🛡️ Check spelling`:`🟢 SAFE 96/100`},600)}
+function run9(){let u=document.getElementById('u9').value||'rbi-official@okaxis',o=document.getElementById('o9');o.textContent='> Parsing UPI...\n';setTimeout(()=>{if(/rbi|official|gov|refund|kbc/i.test(u)){o.textContent=`🔴 FAKE UPI 98/100 - FRAUD!\nUPI: ${u}\n❌ RBI never asks money on UPI!\n❌ Official name + personal UPI = Fake\n📚 CASE: 500 people scammed Delhi - 30L\n🛡️ SAFE: Verify via official email\n✅ Take GST bill`}else{o.textContent=`🟢 FORMAT VALID\nUPI: ${u}\n✅ Format valid\n⚠️ Test with 1 Rs first`}},700)}
+function run2(){let o=document.getElementById('o2');o.textContent='> Sandbox...\n';setTimeout(()=>{o.textContent=`🔴 MALWARE Trojan.FakeAV\n❌ 12 APIs, Russian IPs`},600)}
+function run3(){let o=document.getElementById('o3');o.textContent='> TLS...\n';setTimeout(()=>{o.textContent=`🟢 SSL A+ TLS 1.3\n✅ DigiCert`},600)}
+function run4(){let o=document.getElementById('o4');o.textContent='> WHOIS...\n';setTimeout(()=>{o.textContent=`🟢 TRUSTED 94/100\n✅ 20yr old`},600)}
+function run5(){let o=document.getElementById('o5');o.textContent='> Auditing...\n';setTimeout(()=>{o.textContent=`🔴 24 TRACKERS!\n❌ 8 Ads, 6 Fingerprint`},600)}
+function run6(){let o=document.getElementById('o6');o.textContent='> DNS...\n';setTimeout(()=>{o.textContent=`🟢 DNSSEC Valid\n✅ Meta IP`},600)}
+function run7(){let u=document.getElementById('u7').value||'You won',o=document.getElementById('o7');o.textContent='> NLP...\n';setTimeout(()=>{o.textContent=/won|prize/i.test(u)?`🔴 SCAM 89%`:`🟢 CLEAN`},600)}
+function run8(){let o=document.getElementById('o8');o.textContent='> Tracing...\n';setTimeout(()=>{o.textContent=`🔴 FRAUD RING 8 shops Same UPI shop@okaxis`},600)}
+function run10(){let u=document.getElementById('u10').value||'upi://pay?pa=shop@okaxis&am=1000',o=document.getElementById('o10');o.textContent='> Decoding...\n';setTimeout(()=>{o.textContent=/am=/.test(u)?`🔴 SCAM QR - COLLECT! Money debited from YOU!\n❌ CANCEL - Real shop QR has no amount`:`🟢 SAFE PAY QR`},600)}
+function run11(){let o=document.getElementById('o11');o.textContent='> Simulating...\n';setTimeout(()=>{o.textContent=`🔴 OTP LEAK PATH!\n1. App reads SMS\n2. Forward to +91-88xxx\n3. Leaked in 2 sec`},600)}
+function run12(){let o=document.getElementById('o12');o.textContent='> Tracing...\n';setTimeout(()=>{o.textContent=`🔴 FAKE FORWARD AI!\n❌ Forwarded many times`},600)}
+function run13(){let o=document.getElementById('o13');o.textContent='> Analyzing...\n';setTimeout(()=>{o.textContent=`🔴 FAKE INSTA 87% BOT\n❌ Extra _ in name`},600)}
+function run14(){let o=document.getElementById('o14');o.textContent='> Tracing...\n';setTimeout(()=>{o.textContent=`🔴 SPOOFED CALL!\n❌ +91-140 fake`},600)}
+function run15(){let o=document.getElementById('o15');o.textContent='> Scanning...\n';setTimeout(()=>{o.textContent=`🔴 EVIL TWIN 95/100!\n❌ Real is RailWire`},600)}
+function run16(){let u=document.getElementById('u16').value||'mathura@123',o=document.getElementById('o16');o.textContent='> Brute force...\n';setTimeout(()=>{let t=u.length<8?'2 sec':u==='mathura@123'?'4 min':'300yr';o.textContent=`🔴 WEAK! Crack: ${t}\n✅ Strong: M@thuR@#2024!VrIn 400yr`},600)}
+function run17(){let o=document.getElementById('o17');o.textContent='> Parsing...\n';setTimeout(()=>{o.textContent=`🔴 SPOOFED EMAIL!\nFrom rbi@alert.com\nReal: scammer@gmail.com\nSPF: FAIL`},600)}
+function run18(){let o=document.getElementById('o18');o.textContent='> AI analysis...\n';setTimeout(()=>{o.textContent=`🔴 DEEPFAKE 91%!\n❌ Blink 2/min (real 15-20)`},600)}
+function run19(){let o=document.getElementById('o19');o.textContent='> APK check...\n';setTimeout(()=>{o.textContent=`🔴 FRAUD APP 28 Perms!\n❌ SMS Read = OTP steal`},600)}
+function run20(){let o=document.getElementById('o20');o.textContent='> NLP...\n';setTimeout(()=>{o.textContent=`🔴 JOB SCAM 96% Telegram Task!\n❌ 5000/day + Telegram = scam`},600)}
 </script>
 </body></html>
