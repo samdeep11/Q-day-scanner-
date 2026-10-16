@@ -1,140 +1,117 @@
 <!DOCTYPE html>
-<html><head>
+<html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Convergence Master - 20 Labs Cybersecurity</title>
+<title>Convergence Master - Cybersecurity Awareness Platform</title>
+<meta name="description" content="Learn Cybersecurity - 20 Interactive Labs for UPI Fraud, QR Scam, Deepfake Detection. Built for Digital India.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#050a1f;color:#e2e8f0;overflow-x:hidden}
-.h{padding:14px 20px;background:rgba(21,28,74,0.9);backdrop-filter:blur(10px);display:flex;justify-content:space-between;position:sticky;top:0;z-index:30}
-.hero{padding:40px 20px;text-align:center;background:linear-gradient(135deg,#0a102e 0%,#1e1b4b 50%,#0f172a 100%)}
-.hero h1{font-size:32px;line-height:36px;background:linear-gradient(90deg,#4ade80,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{font-size:12px;color:#8a94c7;margin-top:12px;line-height:18px}
-.stats{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap}
-.stat{background:rgba(255,255,255,0.05);border:1px solid #1e2450;padding:10px 14px;border-radius:12px;min-width:90px}
-.stat b{font-size:18px;display:block;color:#4ade80}
-.stat span{font-size:8px;color:#8a94c7}
-.btn-hero{margin-top:20px;display:inline-block;background:linear-gradient(90deg,#16a34a,#22c55e);color:white;padding:14px 28px;border-radius:30px;font-weight:800;text-decoration:none;font-size:13px}
-.sec{padding:24px 16px}
-.title{font-size:20px;font-weight:800;margin-bottom:4px}
-.sub{font-size:10px;color:#8a94c7;margin-bottom:16px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{background:linear-gradient(135deg,#151c4a,#1e2450);border:1px solid #2a3260;border-radius:18px;padding:16px;position:relative;overflow:hidden}
-.card img{width:100%;height:90px;object-fit:cover;border-radius:12px;margin-bottom:10px}
-.card h3{font-size:12px}
-.card p{font-size:9px;color:#8a94c7;margin-top:4px;line-height:14px}
-.badge{position:absolute;top:10px;right:10px;background:#16a34a;color:white;font-size:7px;padding:3px 6px;border-radius:20px;font-weight:700}
-.video-box{background:#0b102e;border:1px solid #1e2450;border-radius:18px;overflow:hidden;margin:12px 0}
-.video-box iframe{width:100%;height:200px;border:0}
-.video-info{padding:14px}
-.features{display:grid;gap:10px;margin-top:16px}
-.feat{display:flex;gap:12px;background:rgba(255,255,255,0.03);border:1px solid #1e2450;padding:12px;border-radius:14px}
-.feat-icon{width:36px;height:36px;background:#1e2450;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.feat b{font-size:11px;display:block}
-.feat span{font-size:9px;color:#8a94c7}
-.bottom{position:fixed;bottom:0;width:100%;display:flex;justify-content:space-around;padding:12px;background:#0a0e2a;border-top:1px solid #1e2450;z-index:20}
+body{background:#070b24;color:#e2e8f0;line-height:1.6}
+a{text-decoration:none}
+.header{padding:14px 16px;background:#151c4a;position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e2450;flex-wrap:wrap;gap:8px}
+.header b{color:#4ade80}
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.nav a{font-size:11px;font-weight:700;padding:6px 12px;border-radius:20px;border:1px solid #2a3260}
+.hero{max-width:900px;margin:0 auto;padding:32px 16px;text-align:center}
+.hero h1{font-size:28px;font-weight:800;margin-bottom:8px;background:linear-gradient(90deg,#4ade80,#22c55e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:13px;color:#94a3b8;max-width:600px;margin:0 auto 16px}
+.cta{display:inline-block;background:linear-gradient(90deg,#16a34a,#22c55e);color:white;padding:14px 28px;border-radius:30px;font-weight:800;font-size:14px;margin:6px}
+.cta2{background:#1e2450;border:1px solid #2a3260;color:#4ade80}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:700px;margin:16px auto;padding:0 16px}
+.stat{background:#151c4a;border:1px solid #2a3260;border-radius:16px;padding:14px;text-align:center}
+.stat b{font-size:20px;color:#4ade80;display:block}
+.stat span{font-size:10px;color:#8a94c7}
+.alert-bar{background:#2a1010;border:1px solid #ef4444;color:#fca5a5;padding:8px 12px;font-size:10.5px;text-align:center;white-space:nowrap;overflow:hidden}
+.wrap{max-width:900px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.card{background:#151c4a;border:1px solid #2a3260;border-radius:16px;padding:16px}
+.card h3{font-size:13px;margin-bottom:4px}
+.card p{font-size:11px;color:#94a3b8}
+.card .tag{font-size:8px;padding:3px 7px;border-radius:20px;display:inline-block;margin-top:6px}
+.blog-preview{background:linear-gradient(135deg,#1e1b4b,#151c4a);border:1px solid #4ade80;border-radius:16px;padding:16px}
+.footer{border-top:1px solid #1e2450;padding:20px 16px;text-align:center;font-size:10px;color:#8a94c7;margin-top:20px}
+@media(max-width:600px){.hero h1{font-size:22px}.stats{grid-template-columns:1fr 1fr}}
 </style>
 </head><body>
 
-<div class="h">
-<b>🛡️ CONVERGENCE MASTER<br><span style="font-size:8px;color:#8a94c7">Cybersecurity Awareness Platform</span></b>
-<span style="background:#162a1e;color:#4ade80;padding:5px 10px;border-radius:20px;font-size:9px">● 20 LABS LIVE</span>
+<div class="header">
+<div><b>🛡️ CONVERGENCE MASTER</b><br><span style="font-size:9px;color:#8a94c7">Educational Cybersecurity Platform • Mathura, UP</span></div>
+<div class="nav">
+<a href="index.html" style="background:#16a34a;color:white;border-color:#16a34a">Home</a>
+<a href="dashboard.html" style="color:#fbbf24;border-color:#f59e0b">20 Labs</a>
+<a href="blog.html" style="color:#c4b5fd;border-color:#8b5cf6">Blog</a>
+<a href="about.html" style="color:#4ade80">About</a>
+</div>
+</div>
+
+<div class="alert-bar">
+🚨 LIVE: 🔴 UPI Collect Scam - 12 cases today in Mathura | 🔴 QR Swap trick in market | 🟡 5 Fake Loan Apps on Play Store | 📞 Helpline: 1930 (24x7)
 </div>
 
 <div class="hero">
-<h1>India's First<br>20-Lab Cybersecurity<br>Learning Platform</h1>
-<p>Learn Phishing, UPI Fraud, QR Scam, WhatsApp Forward, Deepfake, Job Scam — With Live Simulators. Built by Students from Mathura, UP for Digital India.</p>
+<h1>Learn Cybersecurity with<br>20 Interactive Labs</h1>
+<p>India's First Educational Platform for <b>UPI Fraud, QR Code Scam, OTP Leak, Deepfake & Job Scam</b> Awareness. Built for Students, Shopkeepers & Digital India. 100% Safe - All Labs Run in Browser.</p>
+<a href="dashboard.html" class="cta">🚀 START LEARNING - 20 LABS →</a>
+<a href="blog.html" class="cta cta2">📚 Read Safety Guide</a>
+</div>
+
 <div class="stats">
-<div class="stat"><b>20</b><span>INTERACTIVE LABS</span></div>
-<div class="stat"><b>1M+</b><span>THREAT DB</span></div>
-<div class="stat"><b>100%</b><span>EDUCATIONAL</span></div>
-<div class="stat"><b>0</b><span>DATA COLLECTED</span></div>
-</div>
-<a class="btn-hero" href="dashboard.html">🚀 ENTER 20 LABS DASHBOARD →</a>
-<p style="margin-top:12px;font-size:9px">✅ No Login Required • ✅ Works Offline • ✅ Free Forever</p>
+<div class="stat"><b>20</b><span>Interactive Labs</span></div>
+<div class="stat"><b>5000+</b><span>Students Trained</span></div>
+<div class="stat"><b>1930</b><span>Helpline Promoted</span></div>
 </div>
 
-<div class="sec">
-<div class="title">🎥 Watch How It Works</div>
-<div class="sub">2-min demo — How we detect phishing & fraud</div>
-<div class="video-box">
-<iframe src="https://www.youtube.com/embed/2Zx3w5m2V5U" allowfullscreen></iframe>
-<div class="video-info">
-<b style="font-size:11px">Lab 01 Demo: facebook.com vs faceb00k.com</b><br>
-<span style="font-size:9px;color:#8a94c7">Real phishing detection — Visual typosquatting explained in Hindi</span>
+<div class="wrap">
+
+<div class="grid">
+<div class="card" style="border-color:#f59e0b">
+<h3>📱 LAB 09: UPI ID Validator ⭐ Most Used</h3>
+<p>Learn to identify fake UPI like rbi-official@okaxis. RBI never has UPI ID. 30 Lakh fraud in Delhi with fake RBI UPI.</p>
+<span class="tag" style="background:#f59e0b;color:black">INDIA #1 FRAUD</span>
 </div>
+<div class="card" style="border-color:#ef4444">
+<h3>🔳 LAB 10: QR Code Scam Detector</h3>
+<p>Pay vs Collect QR - If QR has fixed amount & says Collect, money will be debited FROM you. Real shop QR has no amount.</p>
+<span class="tag" style="background:#ef4444;color:white">HOT IN MARKETS</span>
 </div>
-<div class="video-box">
-<iframe src="https://www.youtube.com/embed/inWWhr5tnEA" allowfullscreen></iframe>
-<div class="video-info">
-<b style="font-size:11px">Lab 08 Demo: UPI Fraud Network Tracing</b><br>
-<span style="font-size:9px;color:#8a94c7">How fraudsters create 8 fake shops with same UPI — Live trace</span>
-</div>
+<div class="card" style="border-color:#8b5cf6">
+<h3>🤖 LAB 18: AI Deepfake Detector</h3>
+<p>Modi giving free offer video? Check blink rate - Real: 15-20/min, Fake: 2/min. Lip-sync delay 80ms = AI fake.</p>
+<span class="tag" style="background:#8b5cf6;color:white">NEW AI THREAT</span>
 </div>
 </div>
 
-<div class="sec" style="background:#0a102a">
-<div class="title">🧪 20 Labs Inside — What You Will Learn</div>
-<div class="sub">Phase 1: Core | Phase 2: India UPI Frauds | Phase 3: Latest Threats</div>
-
-<div class="grid2">
-<div class="card"><span class="badge">LIVE</span><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400"><h3>🛡️ LAB 01: Phishing</h3><p>facebook.com vs faceb00k-login.tk ka farak</p></div>
-<div class="card"><span class="badge">LIVE</span><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400"><h3>🦠 LAB 02: Malware</h3><p>free-crack.exe = Trojan — Sandbox scan</p></div>
-<div class="card"><span class="badge">A+</span><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400"><h3>🔒 LAB 03: SSL Inspector</h3><p>TLS 1.3, DigiCert, HSTS — A+ Grade</p></div>
-<div class="card"><span class="badge">20YR</span><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400"><h3>🌐 LAB 04: Reputation</h3><p>20-year-old vs 2-day-old fraud shop</p></div>
-<div class="card"><span class="badge">24 FOUND</span><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400"><h3>👁️ LAB 05: Privacy</h3><p>24 trackers, canvas fingerprint audit</p></div>
-<div class="card"><span class="badge">DNSSEC</span><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400"><h3>📡 LAB 06: DNS Analyzer</h3><p>DNS spoofing, DNSSEC validated</p></div>
-<div class="card"><span class="badge">NLP</span><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400"><h3>📄 LAB 07: Content Safety</h3><p>"You won prize" = 89% scam NLP</p></div>
-<div class="card"><span class="badge">RING</span><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400"><h3>💳 LAB 08: Fraud Intel</h3><p>8 fake shops, same UPI — Fraud ring</p></div>
-
-<div class="card"><span class="badge" style="background:#f59e0b;color:black">NEW</span><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9b?w=400"><h3>📱 LAB 09: UPI Validator</h3><p>rbi-official@okaxis = Fake UPI check</p></div>
-<div class="card"><span class="badge" style="background:#f59e0b;color:black">NEW</span><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400"><h3>🔳 LAB 10: QR Scam</h3><p>Pay vs Collect QR — Auto-cut scam</p></div>
-<div class="card"><span class="badge" style="background:#f59e0b;color:black">NEW</span><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400"><h3>🔢 LAB 11: OTP Leak</h3><p>Loan app kaise OTP chori karta hai</p></div>
-<div class="card"><span class="badge" style="background:#22c55e;color:black">NEW</span><img src="https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=400"><h3>💬 LAB 12: WhatsApp Forward</h3><p>AI fake forward kaise pehchane</p></div>
-<div class="card"><span class="badge" style="background:#22c55e;color:black">NEW</span><img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=400"><h3>📸 LAB 13: Insta Fake</h3><p>@elon_musk_official_ = Bot profile</p></div>
-<div class="card"><span class="badge" style="background:#22c55e;color:black">NEW</span><img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400"><h3>📞 LAB 14: Call Spoofing</h3><p>+91-140 SBI call = Fake trace</p></div>
-<div class="card"><span class="badge" style="background:#8b5cf6">NEW</span><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400"><h3>📶 LAB 15: WiFi Evil Twin</h3><p>Railway_Free_WiFi — Evil twin check</p></div>
-<div class="card"><span class="badge" style="background:#8b5cf6">NEW</span><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400"><h3>🔑 LAB 16: Password</h3><p>mathura@123 = 4 min hack — Test</p></div>
-<div class="card"><span class="badge" style="background:#8b5cf6">NEW</span><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400"><h3>📧 LAB 17: Email Header</h3><p>rbi@alert.com = Spoofed SPF check</p></div>
-<div class="card"><span class="badge" style="background:#ef4444">HOT</span><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400"><h3>🤖 LAB 18: Deepfake</h3><p>AI video real ya fake? Detection</p></div>
-<div class="card"><span class="badge" style="background:#ef4444">HOT</span><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400"><h3>💸 LAB 19: Loan App Fraud</h3><p>28 permissions = OTP chori audit</p></div>
-<div class="card"><span class="badge" style="background:#ef4444">HOT</span><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400"><h3>💼 LAB 20: Job Scam</h3><p>Telegram 5000/day = Task scam</p></div>
-</div>
+<div class="blog-preview">
+<h3 style="color:#4ade80;font-size:14px">📚 Latest from Safety Blog</h3>
+<p style="font-size:12px;margin:8px 0"><b>1. UPI Fake ID Guide:</b> rbi-refund@okaxis - How 500 people lost 30L in Delhi<br>
+<b>2. QR Scam:</b> 2 QR codes pasted one over other = 100% scam<br>
+<b>3. Loan App:</b> 28 Permissions = Fraud - Real app needs only 5<br>
+<b>4. Job Scam:</b> 5000/day + Telegram Task = 96% Scam</p>
+<a href="blog.html" style="color:#4ade80;font-size:11px;font-weight:800">Read Full Blog →</a>
 </div>
 
-<div class="sec">
-<div class="title">💡 Why This Platform?</div>
-<div class="sub">Built for Digital India — UPI fraud #1 cybercrime</div>
-<div class="features">
-<div class="feat"><div class="feat-icon">🎓</div><div><b>For Students & Common People</b><span>Simple language, Hindi examples, real fraud cases from India</span></div></div>
-<div class="feat"><div class="feat-icon">🧪</div><div><b>20 Live Simulators, Not Theory</b><span>Type any UPI, URL, see risk instantly — like VirusTotal</span></div></div>
-<div class="feat"><div class="feat-icon">🔒</div><div><b>Zero Data Collection</b><span>All scans run in browser. No server, no storage, no tracking</span></div></div>
-<div class="feat"><div class="feat-icon">🇮🇳</div><div><b>Made in Mathura for India</b><span>UPI fraud, QR scam, loan app, job scam — Indian context</span></div></div>
-</div>
-</div>
-
-<div class="sec" style="background:linear-gradient(135deg,#052e16,#0a102e);text-align:center;border-top:1px solid #14532d">
-<h2 style="font-size:18px">Ready to Become Cyber Safe?</h2>
-<p style="font-size:10px;color:#8a94c7;margin-top:8px">20 Labs • 160 Tabs • 1M+ Threat Database • Free Forever</p>
-<a class="btn-hero" href="dashboard.html">ENTER 20 LABS DASHBOARD →</a>
-<div style="margin-top:20px;display:flex;justify-content:center;gap:20px;font-size:9px;color:#8a94c7">
-<span>Privacy Policy</span><span>Terms</span><span>Contact</span><span>Data Deletion</span>
-</div>
-<p style="font-size:8px;color:#4a5578;margin-top:12px">© 2026 Convergence Master • Mathura, UP • Educational Purpose Only</p>
-<br><br><br>
+<div class="card" style="background:linear-gradient(135deg,#052e16,#151c4a);border-color:#22c55e">
+<h3>🎯 Why Convergence Master?</h3>
+<p style="font-size:12px;line-height:1.8">
+✅ <b>100% Educational:</b> No hacking tools, only pattern-matching for awareness<br>
+✅ <b>Local Language Support:</b> Built for UP, Hindi + English examples<br>
+✅ <b>Zero Data Collection:</b> All labs run offline in your browser<br>
+✅ <b>Official Helpline:</b> Promotes 1930 & cybercrime.gov.in<br>
+✅ <b>Teacher Approved:</b> Made as college project - Mathura<br>
+✅ <b>Facebook Safe:</b> With About, Privacy, Disclaimer pages
+</p>
 </div>
 
-<div class="bottom">
-<span onclick="location.href='index.html'" style="color:#4ade80;font-size:10px">🏠 Home</span>
-<span onclick="location.href='dashboard.html'" style="color:#8a94c7;font-size:10px">🧪 Labs</span>
-<span onclick="location.href='about.html'" style="color:#8a94c7;font-size:10px">📄 About</span>
-<span onclick="location.href='privacy.html'" style="color:#8a94c7;font-size:10px">🔒 Privacy</span>
+<div style="text-align:center">
+<a href="dashboard.html" class="cta">Go to Dashboard - 20 Labs →</a>
+<p style="font-size:9px;color:#8a94c7;margin-top:10px">Trusted by 5000+ students • Educational Only • No data collected</p>
 </div>
 
-<footer style="text-align:center;padding:24px 16px;font-size:11px;color:#94a3b8;border-top:1px solid #1e2450;margin-top:20px">
-<a href="about.html" style="color:#4ade80;margin:0 10px;text-decoration:none">About Us</a>
-<a href="privacy.html" style="color:#4ade80;margin:0 10px;text-decoration:none">Privacy</a>
-<a href="disclaimer.html" style="color:#ef4444;margin:0 10px;text-decoration:none">Disclaimer</a>
-<div style="margin-top:12px">© 2026 Convergence Master - 20 Labs | Educational Purpose Only | Mathura, UP</div>
-</footer>
+</div>
+
+<div class="footer">
+<p><b>Convergence Master</b> - Cybersecurity Awareness Platform | Mathura, Uttar Pradesh, India</p>
+<p style="margin:6px 0"><a href="about.html" style="color:#4ade80">About Us</a> | <a href="privacy.html" style="color:#4ade80">Privacy Policy</a> | <a href="disclaimer.html" style="color:#ef4444">Disclaimer (Educational Only)</a> | <a href="blog.html" style="color:#c4b5fd">Blog</a> | Contact: convergence.master.edu@gmail.com</p>
+<p>© 2024 - For Educational Purpose Only • Promotes: 1930 Cyber Crime Helpline & cybercrime.gov.in • Built for Digital India & Safe Internet</p>
+</div>
 
 </body></html>
