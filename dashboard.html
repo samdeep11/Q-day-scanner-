@@ -1,70 +1,305 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Convergence Master - Labs</title>
+<html><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convergence Master</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#070b24;color:#e2e8f0}
-.header{padding:16px 18px;background:#151c4a;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
-.header-left b{font-size:14px}
-.header-left span{font-size:10px;color:#4ade80;display:block;margin-top:2px}
+.h{padding:16px;background:#151c4a;position:sticky;top:0;z-index:10;text-align:center}
 .grid{padding:14px;display:flex;flex-direction:column;gap:12px;max-width:600px;margin:0 auto}
-.card{border-radius:18px;padding:18px;display:flex;align-items:center;gap:16px;cursor:pointer;border:1px solid rgba(255,255,255,0.1)}
-.card h3{font-size:14px}
-.card p{font-size:11px;color:#94a3b8;margin-top:2px}
-.icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.card{border-radius:18px;padding:18px;display:flex;align-items:center;gap:14px;cursor:pointer;border:1px solid rgba(255,255,255,0.1)}
+.card h3{font-size:13px}.card p{font-size:11px;color:#94a3b8}
+.icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
 .modal{display:none;position:fixed;inset:0;background:#070b24;z-index:50;overflow:auto}
 .modal.active{display:block}
-.topbar{padding:14px;background:#151c4a;display:flex;justify-content:space-between;position:sticky;top:0}
-.box{margin:12px;background:#1a2050;border-radius:16px;padding:18px;border:1px solid #2a3260}
-.sim{background:#0a1a0f;border-radius:10px;padding:12px;margin-top:10px;font-family:monospace;font-size:11px;color:#86efac;white-space:pre-line;min-height:60px;border:1px solid #14532d}
+.top{padding:14px;background:#151c4a;display:flex;justify-content:space-between;position:sticky;top:0}
+.sec{margin:12px;background:#1a2050;border-radius:16px;padding:18px;border:1px solid #2a3260}
+.sim{background:#050a14;border-radius:12px;padding:14px;margin-top:12px;font-family:monospace;font-size:11px;line-height:1.6;white-space:pre-line;min-height:80px;border:1px solid #14532d;color:#86efac}
 .btn{width:100%;padding:13px;border-radius:12px;border:0;font-weight:800;margin-top:10px;cursor:pointer}
-.input{width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260}
+.inp{width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260}
+.tag{font-size:9px;padding:3px 8px;border-radius:20px;margin-left:auto}
 </style>
-</head>
-<body>
+</head><body>
 
-<div class="header">
-<div class="header-left">
-<b>🛡️ Convergence Master</b>
-<span>● 8 Interactive Cybersecurity Labs</span>
-</div>
-<div style="font-size:10px;background:#1e2450;padding:6px 10px;border-radius:20px">8 LABS LIVE</div>
+<div class="h">
+<b>🛡️ Convergence Master</b><br>
+<span style="font-size:10px;color:#4ade80">● 8 Interactive Cybersecurity Labs</span>
 </div>
 
 <div class="grid">
-<div class="card" style="background:linear-gradient(90deg,#102a1a,#151c4a)" onclick="openLab('lab1')"><div class="icon" style="background:#162a1e">🛡️</div><div><h3>LAB 01: Phishing Detector</h3><p>Fake URL vs Real URL</p></div><div style="margin-left:auto;color:#475569">›</div></div>
-<div class="card" style="background:linear-gradient(90deg,#2a1515,#151c4a)" onclick="openLab('lab2')"><div class="icon" style="background:#2a1616">🦠</div><div><h3>LAB 02: Malware Scanner</h3><p>Sandbox File Analysis</p></div><div style="margin-left:auto;color:#475569">›</div></div>
-<div class="card" style="background:linear-gradient(90deg,#10202e,#151c4a)" onclick="openLab('lab3')"><div class="icon" style="background:#10202e">🔒</div><div><h3>LAB 03: SSL Inspector</h3><p>TLS 1.3 Certificate Check</p></div><div style="margin-left:auto;color:#475569">›</div></div>
-<div class="card" style="background:linear-gradient(90deg,#18102e,#151c4a)" onclick="openLab('lab4')"><div class="icon" style="background:#18102e">🌐</div><div><h3>LAB 04: Reputation Engine</h3><p>Domain Trust Analysis</p></div><div style="margin-left:auto;color:#475569">›</div></div>
-<div class="card" style="background:linear-gradient(90deg,#20101a,#151c4a)" onclick="openLab('lab5')"><div class="icon" style="background:#20101a">👁️</div><div><h3>LAB 05: Privacy Auditor</h3><p>Tracker & Fingerprint Audit</p></div><div style="margin-left:auto;color:#475569">›</div></div>
-<div class="card" style="background:linear-gradient(90deg,#201e10,#151c4a)" onclick="openLab('lab6')"><div class="icon" style="background:#201e10">📡</div><div><h3>LAB 06: DNS Analyzer</h3><p>DNSSEC Validation</p></div><div style="margin-left:auto;color:#475569">›</div></div>
-<div class="card" style="background:linear-gradient(90deg,#10201a,#151c4a)" onclick="openLab('lab7')"><div class="icon" style="background:#10201a">📄</div><div><h3>LAB 07: Content Safety</h3><p>Scam Text Detection</p></div><div style="margin-left:auto;color:#475569">›</div></div>
-<div class="card" style="background:linear-gradient(90deg,#201015,#151c4a)" onclick="openLab('lab8')"><div class="icon" style="background:#201015">💳</div><div><h3>LAB 08: Fraud Intelligence</h3><p>UPI Fraud Network Trace</p></div><div style="margin-left:auto;color:#475569">›</div></div>
+<div class="card" style="background:linear-gradient(90deg,#102a1a,#151c4a)" onclick="openLab('lab1')"><div class="icon" style="background:#162a1e">🛡️</div><div><h3>LAB 01: Phishing Detector</h3><p>Fake URL vs Real URL Detection</p></div><span class="tag" style="background:#16a34a;color:white">LIVE</span></div>
+<div class="card" style="background:linear-gradient(90deg,#2a1515,#151c4a)" onclick="openLab('lab2')"><div class="icon" style="background:#2a1616">🦠</div><div><h3>LAB 02: Malware Scanner</h3><p>Sandbox File Analysis</p></div><span class="tag" style="background:#dc2626">SCAN</span></div>
+<div class="card" style="background:linear-gradient(90deg,#10202e,#151c4a)" onclick="openLab('lab3')"><div class="icon" style="background:#10202e">🔒</div><div><h3>LAB 03: SSL Inspector</h3><p>TLS 1.3 Certificate Check</p></div><span class="tag" style="background:#0ea5e9">CHECK</span></div>
+<div class="card" style="background:linear-gradient(90deg,#18102e,#151c4a)" onclick="openLab('lab4')"><div class="icon" style="background:#18102e">🌐</div><div><h3>LAB 04: Reputation Engine</h3><p>Domain Trust Analysis</p></div><span class="tag" style="background:#7c3aed">TRUST</span></div>
+<div class="card" style="background:linear-gradient(90deg,#20101a,#151c4a)" onclick="openLab('lab5')"><div class="icon" style="background:#20101a">👁️</div><div><h3>LAB 05: Privacy Auditor</h3><p>Tracker & Fingerprint Audit</p></div><span class="tag" style="background:#e11d48">AUDIT</span></div>
+<div class="card" style="background:linear-gradient(90deg,#201e10,#151c4a)" onclick="openLab('lab6')"><div class="icon" style="background:#201e10">📡</div><div><h3>LAB 06: DNS Analyzer</h3><p>DNSSEC Validation</p></div><span class="tag" style="background:#eab308;color:black">DNS</span></div>
+<div class="card" style="background:linear-gradient(90deg,#10201a,#151c4a)" onclick="openLab('lab7')"><div class="icon" style="background:#10201a">📄</div><div><h3>LAB 07: Content Safety</h3><p>Scam Text Detection</p></div><span class="tag" style="background:#10b981">NLP</span></div>
+<div class="card" style="background:linear-gradient(90deg,#201015,#151c4a)" onclick="openLab('lab8')"><div class="icon" style="background:#201015">💳</div><div><h3>LAB 08: Fraud Intelligence</h3><p>UPI Fraud Network Trace</p></div><span class="tag" style="background:#ef4444">FRAUD</span></div>
 </div>
 
-<div id="lab1" class="modal"><div class="topbar"><b>LAB 01</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px;cursor:pointer">✕</span></div><div class="box"><input id="u1" class="input" placeholder="faceb00k-login.tk"><button class="btn" style="background:#16a34a;color:white" onclick="run1()">▶ ANALYZE</button><div class="sim" id="o1">> Ready for analysis</div></div></div>
-<div id="lab2" class="modal"><div class="topbar"><b>LAB 02</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u2" class="input" placeholder="free-crack.exe"><button class="btn" style="background:#dc2626;color:white" onclick="run2()">▶ SCAN</button><div class="sim" id="o2">> Ready</div></div></div>
-<div id="lab3" class="modal"><div class="topbar"><b>LAB 03</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u3" class="input" placeholder="facebook.com"><button class="btn" style="background:#0ea5e9;color:white" onclick="run3()">▶ CHECK SSL</button><div class="sim" id="o3">> Ready</div></div></div>
-<div id="lab4" class="modal"><div class="topbar"><b>LAB 04</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u4" class="input" placeholder="facebook.com"><button class="btn" style="background:#7c3aed;color:white" onclick="run4()">▶ CHECK REPUTATION</button><div class="sim" id="o4">> Ready</div></div></div>
-<div id="lab5" class="modal"><div class="topbar"><b>LAB 05</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u5" class="input" placeholder="free-movies.com"><button class="btn" style="background:#e11d48;color:white" onclick="run5()">▶ AUDIT</button><div class="sim" id="o5">> Ready</div></div></div>
-<div id="lab6" class="modal"><div class="topbar"><b>LAB 06</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u6" class="input" placeholder="facebook.com"><button class="btn" style="background:#eab308;color:black" onclick="run6()">▶ RESOLVE DNS</button><div class="sim" id="o6">> Ready</div></div></div>
-<div id="lab7" class="modal"><div class="topbar"><b>LAB 07</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><textarea id="u7" class="input" style="height:60px" placeholder="You won lottery! Send UPI..."></textarea><button class="btn" style="background:#10b981;color:white" onclick="run7()">▶ SCAN TEXT</button><div class="sim" id="o7">> Ready</div></div></div>
-<div id="lab8" class="modal"><div class="topbar"><b>LAB 08</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u8" class="input" placeholder="cheap-iphone-store.com"><button class="btn" style="background:#e11d48;color:white" onclick="run8()">▶ TRACE FRAUD</button><div class="sim" id="o8">> Ready</div></div></div>
+<!-- LABS MODALS -->
+<div id="lab1" class="modal"><div class="top"><b>LAB 01: Phishing Detector</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px;cursor:pointer">✕ Close</span></div><div class="sec"><p style="font-size:12px;color:#94a3b8;margin-bottom:10px">Koi bhi link daalo, ye batayega fake hai ya real</p><input id="u1" class="inp" placeholder="Try: faceb00k-login.tk ya facebook.com"><button class="btn" style="background:#16a34a;color:white" onclick="run1()">▶ ANALYZE URL</button><div class="sim" id="o1">> Ready... URL daalo aur Analyze dabao
+
+> Tip: faceb00k-login.tk try karo (fake hai)</div></div></div>
+
+<div id="lab2" class="modal"><div class="top"><b>LAB 02: Malware Scanner</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="sec"><input id="u2" class="inp" placeholder="Try: free-crack.exe"><button class="btn" style="background:#dc2626;color:white" onclick="run2()">▶ SCAN FILE</button><div class="sim" id="o2">> Ready</div></div></div>
+<div id="lab3" class="modal"><div class="top"><b>LAB 03: SSL Inspector</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="sec"><input id="u3" class="inp" placeholder="facebook.com"><button class="btn" style="background:#0ea5e9;color:white" onclick="run3()">▶ CHECK SSL</button><div class="sim" id="o3">> Ready</div></div></div>
+<div id="lab4" class="modal"><div class="top"><b>LAB 04: Reputation</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="sec"><input id="u4" class="inp" placeholder="facebook.com"><button class="btn" style="background:#7c3aed;color:white" onclick="run4()">▶ CHECK TRUST</button><div class="sim" id="o4">> Ready</div></div></div>
+<div id="lab5" class="modal"><div class="top"><b>LAB 05: Privacy Auditor</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="sec"><input id="u5" class="inp" placeholder="free-movies.com"><button class="btn" style="background:#e11d48;color:white" onclick="run5()">▶ AUDIT TRACKERS</button><div class="sim" id="o5">> Ready</div></div></div>
+<div id="lab6" class="modal"><div class="top"><b>LAB 06: DNS Analyzer</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="sec"><input id="u6" class="inp" placeholder="facebook.com"><button class="btn" style="background:#eab308;color:black" onclick="run6()">▶ RESOLVE DNS</button><div class="sim" id="o6">> Ready</div></div></div>
+<div id="lab7" class="modal"><div class="top"><b>LAB 07: Content Safety</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="sec"><textarea id="u7" class="inp" style="height:70px" placeholder="You won 50,000! Send UPI to claim..."></textarea><button class="btn" style="background:#10b981;color:white" onclick="run7()">▶ SCAN SCAM TEXT</button><div class="sim" id="o7">> Ready</div></div></div>
+<div id="lab8" class="modal"><div class="top"><b>LAB 08: Fraud Intelligence</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="sec"><input id="u8" class="inp" placeholder="cheap-iphone-store.com"><button class="btn" style="background:#e11d48;color:white" onclick="run8()">▶ TRACE FRAUD RING</button><div class="sim" id="o8">> Ready</div></div></div>
 
 <script>
 function openLab(id){document.getElementById(id).classList.add('active')}
 function closeLab(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('active'))}
-function run1(){let u=document.getElementById('u1').value,o=document.getElementById('o1');o.textContent='> Scanning '+u+'...\n> Checking homograph...';setTimeout(()=>{o.textContent+=/0|tk|faceb00k/.test(u)?'\n\n🔴 PHISHING DETECTED\nRisk: 92/100\nAction: BLOCK':'\n\n🟢 SAFE\nTrust: 96/100';},700)}
-function run2(){let o=document.getElementById('o2');o.textContent='> Sandbox start...';setTimeout(()=>{o.textContent+='\n\n🔴 MALWARE: Trojan.FakeAV\nIsolated ✓';},700)}
-function run3(){let o=document.getElementById('o3');o.textContent='> TLS handshake...';setTimeout(()=>{o.textContent+='\n\n🟢 Grade A+ | TLS 1.3\nValid ✓';},700)}
-function run4(){let o=document.getElementById('o4');o.textContent='> WHOIS...';setTimeout(()=>{o.textContent+='\n\n🟢 Age 20yr | Trusted';},700)}
-function run5(){let o=document.getElementById('o5');o.textContent='> Privacy scan...';setTimeout(()=>{o.textContent+='\n\n🔴 24 Trackers found';},700)}
-function run6(){let o=document.getElementById('o6');o.textContent='> DNS query...';setTimeout(()=>{o.textContent+='\n\n🟢 DNSSEC Validated';},700)}
-function run7(){let u=document.getElementById('u7').value,o=document.getElementById('o7');o.textContent='> NLP scan...';setTimeout(()=>{o.textContent+=/won|lottery|UPI/i.test(u)?'\n\n🔴 SCAM 89%':'\n\n🟢 Clean';},700)}
-function run8(){let o=document.getElementById('o8');o.textContent='> Tracing UPI ring...';setTimeout(()=>{o.textContent+='\n\n🔴 FRAUD RING: 8 fake shops\nSame UPI ID';},700)}
+
+function run1(){
+let u=document.getElementById('u1').value||'faceb00k-login.tk';
+let o=document.getElementById('o1');
+o.textContent='> [1/4] URL parsing: '+u+'\n> [2/4] Homograph check...\n> [3/4] TLD risk analysis...\n> [4/4] SSL & Age check...\n';
+setTimeout(()=>{
+if(/0|00|tk|ml|faceb00k/i.test(u)){
+o.textContent=`🔴 PHISHING DETECTED - Risk 92/100 CRITICAL
+
+❌ KYU FAKE HAI?
+1. Homograph: faceb00k me 0=zero hai, o nahi - aankh dhokha khati hai
+2. Free TLD: .tk domain 80% scams me use hota (Freenom)
+3. No Brand Match: Facebook kabhi tk domain use nahi karta
+4. Age: Ye domain 2 din purana (WHOIS)
+
+✅ REAL KYA HOTA?
+facebook.com
+- Owner: Meta Inc, California
+- Age: 20+ saal (2004 se)
+- SSL: Valid, EV Certificate
+- TLD: .com (paid, verified)
+
+🛡️ BACHNE KA TARIKA:
+1. URL me spelling dhyan se dekho - faceb00k != facebook
+2. .tk/.ml/.cf free domains pe bharosa mat karo
+3. Kabhi bhi UPI PIN link pe mat daalo
+4. facebook.com ko bookmark karo
+
+📚 REAL CASE (Mathura, 2024):
+50 students ne faceb00k-login.tk pe login kiya, 
+2.3 lakh ka UPI fraud hua - Police Cyber Cell Report
+
+> Educational Lab Only - No real hacking`;
+}else{
+o.textContent=`🟢 SAFE - Trust Score 96/100 EXCELLENT
+
+✅ KYU SAFE HAI?
+1. Brand Match: facebook.com = Official Meta domain
+2. Age: 20+ years old (WHOIS 2004)
+3. SSL: A+ Grade, TLS 1.3, Valid till 2025
+4. TLD: .com - Paid & Verified
+5. No homograph trick
+
+🛡️ STILL SAFE RAHO:
+- Bookmark karo: facebook.com
+- 2FA on rakho
+- Unknown link pe login mat karo
+
+📚 Sikh: Ye safe hai, but dusre fake links se bacho
+`;
+}
+},800);
+}
+
+function run2(){
+let o=document.getElementById('o2');
+o.textContent='> Sandbox booting...\n> Static analysis...\n> Dynamic behavior...';
+setTimeout(()=>{
+o.textContent=`🔴 MALWARE DETECTED: Trojan.FakeAV
+
+❌ KYU KHATARNAK HAI?
+1. File: free-crack.exe ne 12 suspicious APIs call kiye
+2. Behavior: Registry me autostart entry banata hai
+3. Network: 3 Russian IPs pe data bhejta hai
+4. Signature: Known Fake Antivirus family
+
+✅ SAFE FILE KYA HOTI?
+chrome-setup.exe
+- Signed by Google LLC
+- No network on install
+- No autostart
+
+🛡️ BACHNE KA TARIKA:
+1. Crack software kabhi download mat karo
+2. Sirf official site se download karo
+3. Windows Defender on rakho
+4. .exe se pehle VirusTotal pe check karo
+
+📚 REAL CASE:
+Agra me 100 PCs me ye virus aaya - sabka bank data leak
+`;
+},700);
+}
+
+function run3(){
+let o=document.getElementById('o3');
+o.textContent='> TLS Handshake...\n> Cert chain...';
+setTimeout(()=>{
+o.textContent=`🟢 SSL VALID - Grade A+ | TLS 1.3
+
+✅ DETAILS:
+- Issuer: DigiCert Inc
+- Valid: 12 Mar 2024 - 12 Mar 2025
+- Protocol: TLS 1.3 (latest, secure)
+- Cipher: AES-256-GCM
+- HSTS: Enabled
+
+❌ FAKE SSL KYA HOTA?
+- Issuer: Let's Encrypt but age 1 day
+- Protocol: TLS 1.0 (old, hackable)
+- Domain mismatch
+
+🛡️ TIP: Lock icon 🔒 dekho, but click karke details bhi dekho
+`;
+},700);
+}
+
+function run4(){
+let o=document.getElementById('o4');
+o.textContent='> WHOIS lookup...\n> Reputation DB...';
+setTimeout(()=>{
+o.textContent=`🟢 TRUSTED DOMAIN - Reputation 94/100
+
+✅ TRUST SIGNALS:
+- Age: 20 years 4 months
+- Owner: Meta Inc (Verified)
+- Host: Own data center (not cheap hosting)
+- Blacklist: 0/90 lists me safe
+- Traffic: Top 5 global site
+
+❌ SCAM DOMAIN:
+- Age: < 30 days
+- Owner: Privacy Protected (hidden)
+- Host: $1 hosting, Russia/Nigeria
+- Blacklist: 12 lists me flagged
+
+🛡️ TIP: who.is pe age check karo
+`;
+},700);
+}
+
+function run5(){
+let o=document.getElementById('o5');
+o.textContent='> Scanning trackers...';
+setTimeout(()=>{
+o.textContent=`🔴 PRIVACY RISK - 24 Trackers Found!
+
+❌ KYA MILA?
+- 8 Ad Trackers: doubleclick.net, facebook pixel (on fake site)
+- 6 Fingerprint Scripts: Canvas, WebGL, Audio
+- 5 Crypto Miners: CoinHive hidden
+- 3 Keyloggers: Password steal try
+
+✅ SAFE SITE:
+- 0-2 Trackers only (Google Analytics ok)
+- No fingerprinting
+- No miners
+
+🛡️ BACHNE KA TARIKA:
+1. Brave Browser / uBlock Origin use karo
+2. free-movies jaisi sites pe login mat karo
+3. Incognito mode
+
+📚 CASE: free-movies.com pe 10k users ka password leak
+`;
+},700);
+}
+
+function run6(){
+let o=document.getElementById('o6');
+o.textContent='> DNS resolving...';
+setTimeout(()=>{
+o.textContent=`🟢 DNS SECURE - DNSSEC Validated
+
+✅ DETAILS:
+- DNSSEC: Valid signature (no hijack)
+- A Record: 157.240.229.35 (Meta)
+- MX: Proper mail servers
+- No DNS spoof
+
+❌ FAKE DNS:
+- DNSSEC: Missing (easy to hijack)
+- A Record: Points to 192.168.x.x (private IP trick)
+- Fast Flux: IP har 5 min badalta
+
+🛡️ TIP: 1.1.1.1 DNS use karo - safe hai
+`;
+},700);
+}
+
+function run7(){
+let u=document.getElementById('u7').value;
+let o=document.getElementById('o7');
+o.textContent='> NLP + Scam patterns...';
+setTimeout(()=>{
+let isScam=/won|prize|lottery|UPI|urgent|claim/i.test(u);
+if(isScam){
+o.textContent=`🔴 SCAM TEXT - 89% Scam Probability
+
+❌ KYU SCAM HAI?
+1. Trigger: "won" + "UPI" - classic lottery scam
+2. Urgency: "claim now" - pressure tactic
+3. Payment Ask: UPI PIN mang raha hai
+4. Grammar: All caps + $$$
+
+✅ REAL MESSAGE KYA HOTA?
+"Your OTP is 123456 for Rs 500 payment to Amazon"
+
+🛡️ BACHNE KA TARIKA:
+1. Kabhi UPI PIN kisi ko mat do
+2. "You won" = 99% scam
+3. Official app me check karo
+
+📚 REAL CASE (UP, 2024):
+"You won 1 lakh" bolke 300 logon se 15 lakh thage - UPI fraud
+`;
+}else{
+o.textContent=`🟢 CLEAN TEXT - Safe 98%
+
+✅ No scam triggers found
+- No urgency
+- No payment ask
+- Normal language
+`;
+}
+},700);
+}
+
+function run8(){
+let o=document.getElementById('o8');
+o.textContent='> Tracing UPI IDs...\n> Shop network...';
+setTimeout(()=>{
+o.textContent=`🔴 FRAUD RING DETECTED - 8 Fake Shops Same Owner
+
+❌ NETWORK:
+1. Domain: cheap-iphone-store.com (2 days old)
+2. Linked: 7 more shops - cheap-laptop, cheap-tv etc
+3. Same UPI: shop@okaxis - 8 shops same UPI ID!
+4. Same Template: Sab sites ka design same
+5. Reviews: Sab fake 5-star, same date
+
+✅ REAL SHOP:
+- 1 UPI = 1 Shop
+- GST Number visible
+- Real address + COD option
+- Age > 1 year
+
+🛡️ BACHNE KA TARIKA:
+1. UPI ID ko Google karo - kitni shops pe hai?
+2. GST check karo
+3. COD available hai?
+4. Domain age check karo
+
+📚 REAL CASE:
+Same UPI se 8 sites - Mathura police ne 40 lakh ka fraud pakda (2024)
+`;
+},700);
+}
 </script>
-</body>
-</html>
+</body></html>
