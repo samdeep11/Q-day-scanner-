@@ -6,46 +6,112 @@
 <title>Convergence Master 2026</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;background:#1e2450}
-body{font-family:Arial;color:white}
-.header{padding:16px 18px;display:flex;justify-content:space-between;align-items:center;background:#252c5e}
-.logo{font-weight:900;font-size:15px;line-height:16px}
-.badge{border:1px solid #4ade80;color:#4ade80;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700}
-.search{margin:14px 16px;background:#2b3260;border:1.5px solid #3d467a;border-radius:14px;padding:14px;display:flex;align-items:center}
+html,body{width:100%;background:#151a35;font-family:Arial;color:white}
+.header{padding:16px;display:flex;justify-content:space-between;align-items:center;background:#1e2450;position:sticky;top:0;z-index:10}
+.logo{font-weight:900;font-size:14px;line-height:14px}
+.badge{border:1px solid #4ade80;color:#4ade80;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700}
+.search{margin:14px 16px;background:#232a57;border:1.5px solid #3d467a;border-radius:14px;padding:14px;display:flex;align-items:center}
 .search input{flex:1;background:transparent;border:0;color:white;outline:none;margin-left:10px;font-size:15px}
-.card{margin:16px;background:#2b3260;border-radius:20px;padding:20px}
-.btn-green{width:100%;background:#22c55e;color:white;border:0;padding:16px;border-radius:14px;font-weight:800;font-size:16px;margin-top:16px}
-.btn-white{width:100%;background:transparent;color:white;border:1.8px solid white;padding:16px;border-radius:14px;font-weight:700;font-size:16px;margin-top:12px}
-.tags{display:flex;gap:8px;padding:0 16px;flex-wrap:wrap}
-.tags span{background:#2b3260;border:1px solid #3d467a;padding:6px 12px;border-radius:20px;font-size:10px}
-.bottom{margin-top:auto;display:flex;justify-content:space-around;padding:16px;background:#252c5e;position:fixed;bottom:0;width:100%;left:0}
-.main{padding-bottom:70px}
+.card{margin:16px;background:#232a57;border-radius:18px;padding:18px}
+.btn-green{width:100%;background:#22c55e;color:white;border:0;padding:15px;border-radius:12px;font-weight:800;font-size:15px;margin-top:14px}
+.btn-white{width:100%;background:transparent;color:white;border:1.5px solid #fff;padding:15px;border-radius:12px;font-weight:700;font-size:15px;margin-top:10px}
+.box{background:#232a57;border-radius:14px;padding:14px;margin:10px 16px}
+.stat{display:flex;justify-content:space-around;text-align:center}
+.bottom{display:flex;justify-content:space-around;padding:12px;background:#1e2450;position:fixed;bottom:0;width:100%;left:0;border-top:1px solid #2a3260}
+.main{padding-bottom:80px}
+h3{font-size:14px;margin-bottom:8px}
 </style>
 </head>
 <body>
 <div class="main">
 <div class="header"><div class="logo">🛡️ CONVERGENCE<br>MASTER 2026</div><div>🔔 👤</div></div>
 
-<div style="text-align:center;padding:24px 16px 10px">
-<div style="color:#a5b4fc;font-size:22px;font-weight:700">Security Verification</div>
-<div style="margin-top:14px"><span class="badge">🛡️ 92/100 SAFE</span></div>
-<div style="color:#9aa3c7;font-size:11px;margin-top:6px">Low risk • Last checked just now</div>
+<div style="text-align:center;padding:20px 16px 5px">
+<div style="color:#a5b4fc;font-size:20px;font-weight:700">Security Verification</div>
+<div style="margin-top:12px"><span class="badge">🛡️ 92/100 SAFE</span></div>
+<div style="color:#8a94c7;font-size:10px;margin-top:6px">Low risk • Last checked just now</div>
 </div>
 
 <div class="search">🔍<input value="facebook.com"><span>⛶</span></div>
 
 <div class="card">
-<div style="font-size:20px;font-weight:800">Ready to verify this site?</div>
-<div style="font-size:13px;margin-top:8px;color:#a5b4fc;line-height:18px">Run a deep security scan to check for threats, phishing, and vulnerabilities on the domain.</div>
+<div style="font-size:18px;font-weight:800">Ready to verify this site?</div>
+<div style="font-size:12px;margin-top:6px;color:#a5b4fc;line-height:17px">Run a deep security scan to check for threats, phishing, and vulnerabilities on the domain.</div>
 <button class="btn-green" onclick="location.href='dashboard.html'">🛡️ Scan Now</button>
 <button class="btn-white" onclick="location.href='dashboard.html'">View Dashboard</button>
 </div>
 
-<div class="tags"><span>🔒 SSL Valid</span><span>🛡️ No Malware</span><span>🌐 Reputation Verified</span></div>
-
-<div style="text-align:center;padding:14px;font-size:8px;color:#9aa3c7;margin-top:10px">Built by Sandeep • Convergence Labs 2026 • Protocol v2026.1</div>
+<!-- STATS -->
+<div class="box stat">
+<div><b style="color:#4ade80;font-size:18px">2.1M+</b><br><span style="font-size:9px;color:#8a94c7">Total Scans</span></div>
+<div><b style="color:#4ade80;font-size:18px">99.9%</b><br><span style="font-size:9px;color:#8a94c7">Accuracy</span></div>
+<div><b style="color:#4ade80;font-size:18px">8</b><br><span style="font-size:9px;color:#8a94c7">AI Labs</span></div>
+<div><b style="color:#4ade80;font-size:18px">24/7</b><br><span style="font-size:9px;color:#8a94c7">Protection</span></div>
 </div>
 
-<div class="bottom"><div style="color:#4ade80">🏠<br>Home</div><div>🔍<br>Search</div><div>📦<br>History</div><div>⚙️<br>Settings</div></div>
+<!-- HOW IT WORKS -->
+<div class="box">
+<h3>⚙️ How it Works</h3>
+<div style="font-size:11px;line-height:16px;margin-top:6px">
+<div style="padding:8px 0;border-bottom:1px solid #2a3260">1️⃣ <b>Enter domain</b> — Any URL like facebook.com</div>
+<div style="padding:8px 0;border-bottom:1px solid #2a3260">2️⃣ <b>8 Labs AI Scan</b> — 10-point security check</div>
+<div style="padding:8px 0">3️⃣ <b>Get Report</b> — Score + PDF certificate instantly</div>
+</div>
+</div>
+
+<!-- WHY CHOOSE -->
+<div class="box">
+<h3>🌟 Why Convergence Master?</h3>
+<div style="font-size:11px;line-height:22px;margin-top:6px;color:#cbd5e1">
+✅ Real-time threat intelligence<br>
+✅ Phishing & Malware detection<br>
+✅ SSL, DNS & Privacy audit<br>
+✅ Free verifiable PDF certificate<br>
+✅ Used by 50k+ security researchers
+</div>
+</div>
+
+<!-- RECENT -->
+<div class="box">
+<h3>🔍 Recent Verifications</h3>
+<div style="font-size:11px;margin-top:8px">
+<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #2a3260"><span>facebook.com</span><span style="color:#4ade80">92/100 SAFE</span></div>
+<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #2a3260"><span>google.com</span><span style="color:#4ade80">95/100 SAFE</span></div>
+<div style="display:flex;justify-content:space-between;padding:9px 0"><span>instagram.com</span><span style="color:#4ade80">93/100 SAFE</span></div>
+</div>
+</div>
+
+<!-- TECH LABS PREVIEW -->
+<div class="box">
+<h3>🧪 Technology Labs Inside</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;font-size:10px">
+<div style="background:#1e2450;padding:8px;border-radius:8px">🛡️ Phishing Detector</div>
+<div style="background:#1e2450;padding:8px;border-radius:8px">🦠 Malware Scanner</div>
+<div style="background:#1e2450;padding:8px;border-radius:8px">🔒 SSL Inspector</div>
+<div style="background:#1e2450;padding:8px;border-radius:8px">🌐 Reputation Engine</div>
+</div>
+<div style="text-align:center;margin-top:10px"><a href="dashboard.html" style="color:#4ade80;font-size:11px;text-decoration:none">View All 8 Labs →</a></div>
+</div>
+
+<!-- FAQ -->
+<div class="box">
+<h3>❓ FAQ</h3>
+<div style="font-size:11px;line-height:17px;margin-top:6px">
+<b>Q: Is scan free?</b><br><span style="color:#8a94c7">Yes, basic verification is 100% free forever.</span><br><br>
+<b>Q: How to get certificate?</b><br><span style="color:#8a94c7">Go to Dashboard → Download Certificate button.</span><br><br>
+<b>Q: Is my data safe?</b><br><span style="color:#8a94c7">We don't store scanned URLs. Fully private.</span>
+</div>
+</div>
+
+<div style="text-align:center;padding:12px;font-size:8px;color:#8a94c7">Built by Sandeep • Convergence Labs 2026 • Protocol v2026.1<br>Trusted by security teams worldwide</div>
+
+</div>
+
+<div class="bottom">
+<div style="color:#4ade80;text-align:center;font-size:10px">🏠<br>Home</div>
+<div style="text-align:center;font-size:10px;color:#8a94c7">🔍<br>Search</div>
+<div style="text-align:center;font-size:10px;color:#8a94c7">📦<br>History</div>
+<div style="text-align:center;font-size:10px;color:#8a94c7">⚙️<br>Settings</div>
+</div>
 </body>
 </html>
