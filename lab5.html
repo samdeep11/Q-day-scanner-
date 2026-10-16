@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAB 05: Privacy Auditor</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#0b102e;color:#e2e8f0}
+.h{padding:14px 16px;background:#151c4a;display:flex;justify-content:space-between;position:sticky;top:0}
+.tabs{display:flex;overflow-x:auto;gap:8px;padding:10px;background:#121844}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex-shrink:0;background:#1e2450;border:1px solid #2a3260;color:#8a94c7;padding:8px 14px;border-radius:20px;font-size:11px}
+.tabs button.active{background:#fb7185;color:#000;border-color:#fb7185;font-weight:700}
+.card{background:#1a2050;margin:12px;border-radius:18px;padding:18px;border:1px solid #2a3260}
+.score{font-size:42px;font-weight:900;color:#fb7185}
+.sim{background:#1e1216;border-radius:12px;padding:12px;margin-top:12px;font-family:monospace;font-size:11px;color:#fda4af;border:1px solid #3a1a22;white-space:pre-line;min-height:70px}
+.btn{width:100%;padding:13px;border-radius:12px;border:0;font-weight:800;margin-top:10px;font-size:13px}
+.btn-r{background:#e11d48;color:white}
+.btn-d{background:#232a60;color:white}
+.bar{height:8px;background:#1e2450;border-radius:10px;margin:6px 0;overflow:hidden}
+.bar div{height:100%;background:#fb7185}
+.sec{display:none}.sec.active{display:block}
+</style>
+</head><body>
+<div class="h"><b>👁️ LAB 05: Privacy Auditor<br><span style="font-size:9px;color:#8a94c7">Tracker & Data Leak Detection Lab</span></b><span onclick="location.href='dashboard.html'" style="background:#1e2450;padding:6px 10px;border-radius:8px">✕</span></div>
+
+<div class="tabs">
+<button class="active" onclick="tab('overview',this)">Overview</button>
+<button onclick="tab('fusion',this)">Fusion</button>
+<button onclick="tab('sim',this)">Simulator</button>
+<button onclick="tab('exp',this)">Experiments</button>
+<button onclick="tab('research',this)">Research</button>
+<button onclick="tab('score',this)">Score</button>
+<button onclick="tab('risk',this)">Risk</button>
+<button onclick="tab('roadmap',this)">Roadmap</button>
+</div>
+
+<div id="overview" class="sec active">
+<div class="card">
+<h3>Overview — Purpose</h3>
+<p style="font-size:11px;margin-top:8px;line-height:18px;color:#a5b4fc">Privacy Auditor trackers, cookies, fingerprinting scripts, aur data collection detect karta hai. Kon si site tumhara data bech rahi hai — ye lab dikhata hai. Facebook Graph API compliance check bhi karta hai.</p>
+<div style="margin-top:14px;display:flex;align-items:center;gap:12px"><div class="score">38</div><div><b style="color:#fb7185">HIGH TRACKING • 24 Trackers</b><br><span style="font-size:10px;color:#8a94c7">Example: free-streaming site</span></div></div>
+</div>
+</div>
+
+<div id="fusion" class="sec">
+<div class="card">
+<h3>Technology Fusion</h3>
+<div style="font-size:11px;line-height:20px;margin-top:8px">
+1. <b>Tracker DB (45%)</b> — EasyPrivacy list 3000+ trackers<br>
+2. <b>Cookie Analyzer (35%)</b> — 3rd party + supercookie<br>
+3. <b>Fingerprint Detector (20%)</b> — Canvas, WebGL tricks<br><br>
+<div style="background:#121844;padding:10px;border-radius:10px">24 trackers + 15 cookies = High Privacy Risk</div>
+</div>
+</div>
+</div>
+
+<div id="sim" class="sec">
+<div class="card">
+<h3>Interactive Simulator — Privacy Audit</h3>
+<input id="url" placeholder="Test: facebook.com / free-movies-4k.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid #2a3260;background:#0b102e;color:white;margin-top:10px">
+<button class="btn btn-r" onclick="runSim()">▶ AUDIT PRIVACY</button>
+<div class="sim" id="simOut">> Privacy Auditor ready...\n> Engine: privacy_v2026.5\n> Lists: EasyPrivacy, AdGuard</div>
+<button class="btn btn-d" onclick="document.getElementById('url').value='free-movies-4k.com';runSim()">Try: free-movies-4k.com</button>
+</div>
+</div>
+
+<div id="exp" class="sec">
+<div class="card">
+<h3>Experiment Center</h3>
+<button class="btn btn-d" onclick="alert('Exp 1: Canvas Fingerprinting — Bina cookie ke tumhe track karta hai, image draw karke device ID banata hai.')">🧪 Exp 1: Canvas Fingerprinting</button>
+<button class="btn btn-d" onclick="alert('Exp 2: Supercookie — Normal cookie delete karne pe bhi wapas aa jata hai.')">🧪 Exp 2: Supercookie</button>
+<button class="btn btn-d" onclick="alert('Exp 3: Facebook Pixel — Legit tracker hai, lekin misuse hota hai data collection ke liye.')">🧪 Exp 3: Facebook Pixel Check</button>
+</div>
+</div>
+
+<div id="research" class="sec">
+<div class="card">
+<h3>Research Explorer</h3>
+<div style="font-size:11px;line-height:22px;margin-top:8px">
+📄 EFF — Behind the one-way mirror (tracking study)<br>
+📄 Princeton Web Census — 1M sites tracking analysis<br>
+📄 GDPR — Privacy compliance rules<br>
+</div>
+</div>
+</div>
+
+<div id="score" class="sec">
+<div class="card">
+<h3>Innovation Score</h3>
+<div style="font-size:11px;margin-top:10px">
+Tracker Detection<div class="bar"><div style="width:94%"></div></div>
+Cookie Analysis<div class="bar"><div style="width:89%"></div></div>
+Fingerprint Block<div class="bar"><div style="width:86%"></div></div><br>
+<div style="background:#121844;padding:12px;border-radius:10px;text-align:center"><b style="font-size:18px;color:#fb7185">88/100 — Privacy Shield</b></div>
+</div>
+</div>
+</div>
+
+<div id="risk" class="sec">
+<div class="card">
+<h3>Risk Analyzer</h3>
+<div style="font-size:11px;line-height:20px;margin-top:8px">
+<span style="color:#4ade80">✅ Safe: No real tracking, simulation only</span><br>
+<span style="color:#fbbf24">⚠️ Note: Facebook login use karne se data share hota hai — user consent chahiye</span><br>
+<span style="color:#fb7185">❌ High Risk: Free movie sites 30+ trackers lagati hain</span>
+</div>
+</div>
+</div>
+
+<div id="roadmap" class="sec">
+<div class="card">
+<h3>Future Roadmap</h3>
+<div style="font-size:11px;line-height:24px;margin-top:8px">
+<b>2026 Q2:</b> GDPR auto-compliance checker<br>
+<b>2026 Q3:</b> App privacy nutrition labels<br>
+<b>2027:</b> AI blocks trackers automatically<br>
+</div>
+</div>
+</div>
+
+<script>
+function tab(id,el){
+document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+el.classList.add('active');
+}
+function runSim(){
+let u=document.getElementById('url').value.trim();
+let out=document.getElementById('simOut');
+if(!u){out.textContent='> Enter URL';return}
+out.textContent='> Scanning '+u+'...\n> Counting trackers, cookies, pixels...';
+setTimeout(()=>{
+let isBad = /free|movie|stream/.test(u);
+out.textContent += '\n\n'+ (isBad ? '🔴 HIGH TRACKING\n> Trackers: 24 (Google, Facebook, 22 others)\n> Cookies: 18 (12 third-party)\n> Fingerprint: Canvas + WebGL detected\n> Risk: Data sold to 5 networks' : '🟢 LOW TRACKING\n> Trackers: 2 (Essential only)\n> Cookies: 3 (First-party)\n> Fingerprint: None\n> Grade: Privacy Friendly');
+},1000);
+}
+</script>
+</body></html>
