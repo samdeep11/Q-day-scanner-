@@ -1,72 +1,70 @@
 <!DOCTYPE html>
-<html><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard - 8 Labs Inside</title>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convergence Master - Labs</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0a0e2a;color:#e2e8f0}
-.h{padding:14px 20px;background:#151c4a;display:flex;justify-content:space-between;position:sticky;top:0;z-index:20}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px}
-.card{border-radius:18px;padding:16px;cursor:pointer;border:1px solid #2a3260}
-.card b{font-size:11px;display:block;margin-top:6px}
-.card p{font-size:9px;color:#8a94c7}
-.modal{display:none;position:fixed;inset:0;background:#0b102e;z-index:50;overflow:auto}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#070b24;color:#e2e8f0}
+.header{padding:16px 18px;background:#151c4a;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.header-left b{font-size:14px}
+.header-left span{font-size:10px;color:#4ade80;display:block;margin-top:2px}
+.grid{padding:14px;display:flex;flex-direction:column;gap:12px;max-width:600px;margin:0 auto}
+.card{border-radius:18px;padding:18px;display:flex;align-items:center;gap:16px;cursor:pointer;border:1px solid rgba(255,255,255,0.1)}
+.card h3{font-size:14px}
+.card p{font-size:11px;color:#94a3b8;margin-top:2px}
+.icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.modal{display:none;position:fixed;inset:0;background:#070b24;z-index:50;overflow:auto}
 .modal.active{display:block}
-.top{padding:14px;background:#151c4a;display:flex;justify-content:space-between;position:sticky;top:0}
-.tabs{display:flex;overflow-x:auto;gap:8px;padding:10px;background:#121844}
-.tabs::-webkit-scrollbar{display:none}
-.tabs button{flex-shrink:0;background:#1e2450;border:1px solid #2a3260;color:#8a94c7;padding:8px 14px;border-radius:20px;font-size:11px}
-.tabs button.active{background:#4ade80;color:#000;font-weight:700}
-.sec{display:none;margin:12px;background:#1a2050;border-radius:16px;padding:18px;border:1px solid #2a3260}
-.sec.active{display:block}
-.sim{background:#0a1a0f;border-radius:10px;padding:10px;margin-top:10px;font-family:monospace;font-size:11px;color:#86efac;white-space:pre-line;min-height:60px}
-.btn{width:100%;padding:12px;border-radius:10px;border:0;font-weight:800;margin-top:8px}
-.bottom{position:fixed;bottom:0;width:100%;display:flex;justify-content:space-around;padding:12px;background:#151c4a;border-top:1px solid #1e2450}
+.topbar{padding:14px;background:#151c4a;display:flex;justify-content:space-between;position:sticky;top:0}
+.box{margin:12px;background:#1a2050;border-radius:16px;padding:18px;border:1px solid #2a3260}
+.sim{background:#0a1a0f;border-radius:10px;padding:12px;margin-top:10px;font-family:monospace;font-size:11px;color:#86efac;white-space:pre-line;min-height:60px;border:1px solid #14532d}
+.btn{width:100%;padding:13px;border-radius:12px;border:0;font-weight:800;margin-top:10px;cursor:pointer}
+.input{width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260}
 </style>
-</head><body>
+</head>
+<body>
 
-<div id="dash">
-<div class="h"><b>🛡️ 8/8 LABS — No Rename Needed</b><span style="background:#162a1e;color:#4ade80;padding:4px 8px;border-radius:10px;font-size:10px">● LIVE</span></div>
+<div class="header">
+<div class="header-left">
+<b>🛡️ Convergence Master</b>
+<span>● 8 Interactive Cybersecurity Labs</span>
+</div>
+<div style="font-size:10px;background:#1e2450;padding:6px 10px;border-radius:20px">8 LABS LIVE</div>
+</div>
+
 <div class="grid">
-<div class="card" style="background:#162a1e;border-color:#14532d" onclick="openLab('lab1')"><div>🛡️</div><b>LAB 01: Phishing</b><p>Click to Open</p></div>
-<div class="card" style="background:#2a1616;border-color:#7f1d1d" onclick="openLab('lab2')"><div>🦠</div><b>LAB 02: Malware</b><p>Click to Open</p></div>
-<div class="card" style="background:#10202e;border-color:#0c4a6e" onclick="openLab('lab3')"><div>🔒</div><b>LAB 03: SSL</b><p>Click to Open</p></div>
-<div class="card" style="background:#18102e;border-color:#3b1f6e" onclick="openLab('lab4')"><div>🌐</div><b>LAB 04: Reputation</b><p>Click to Open</p></div>
-<div class="card" style="background:#20101a;border-color:#6e1130" onclick="openLab('lab5')"><div>👁️</div><b>LAB 05: Privacy</b><p>Click to Open</p></div>
-<div class="card" style="background:#201e10;border-color:#713f12" onclick="openLab('lab6')"><div>📡</div><b>LAB 06: DNS</b><p>Click to Open</p></div>
-<div class="card" style="background:#10201a;border-color:#14532d" onclick="openLab('lab7')"><div>📄</div><b>LAB 07: Content</b><p>Click to Open</p></div>
-<div class="card" style="background:#201015;border-color:#881337" onclick="openLab('lab8')"><div>💳</div><b>LAB 08: Fraud</b><p>Click to Open</p></div>
-</div>
-<div style="margin:16px;background:#052e16;padding:14px;border-radius:12px;text-align:center;font-size:11px">🎉 8 Labs ek hi file me — Facebook Review Ready!<br>No extra files needed</div>
+<div class="card" style="background:linear-gradient(90deg,#102a1a,#151c4a)" onclick="openLab('lab1')"><div class="icon" style="background:#162a1e">🛡️</div><div><h3>LAB 01: Phishing Detector</h3><p>Fake URL vs Real URL</p></div><div style="margin-left:auto;color:#475569">›</div></div>
+<div class="card" style="background:linear-gradient(90deg,#2a1515,#151c4a)" onclick="openLab('lab2')"><div class="icon" style="background:#2a1616">🦠</div><div><h3>LAB 02: Malware Scanner</h3><p>Sandbox File Analysis</p></div><div style="margin-left:auto;color:#475569">›</div></div>
+<div class="card" style="background:linear-gradient(90deg,#10202e,#151c4a)" onclick="openLab('lab3')"><div class="icon" style="background:#10202e">🔒</div><div><h3>LAB 03: SSL Inspector</h3><p>TLS 1.3 Certificate Check</p></div><div style="margin-left:auto;color:#475569">›</div></div>
+<div class="card" style="background:linear-gradient(90deg,#18102e,#151c4a)" onclick="openLab('lab4')"><div class="icon" style="background:#18102e">🌐</div><div><h3>LAB 04: Reputation Engine</h3><p>Domain Trust Analysis</p></div><div style="margin-left:auto;color:#475569">›</div></div>
+<div class="card" style="background:linear-gradient(90deg,#20101a,#151c4a)" onclick="openLab('lab5')"><div class="icon" style="background:#20101a">👁️</div><div><h3>LAB 05: Privacy Auditor</h3><p>Tracker & Fingerprint Audit</p></div><div style="margin-left:auto;color:#475569">›</div></div>
+<div class="card" style="background:linear-gradient(90deg,#201e10,#151c4a)" onclick="openLab('lab6')"><div class="icon" style="background:#201e10">📡</div><div><h3>LAB 06: DNS Analyzer</h3><p>DNSSEC Validation</p></div><div style="margin-left:auto;color:#475569">›</div></div>
+<div class="card" style="background:linear-gradient(90deg,#10201a,#151c4a)" onclick="openLab('lab7')"><div class="icon" style="background:#10201a">📄</div><div><h3>LAB 07: Content Safety</h3><p>Scam Text Detection</p></div><div style="margin-left:auto;color:#475569">›</div></div>
+<div class="card" style="background:linear-gradient(90deg,#201015,#151c4a)" onclick="openLab('lab8')"><div class="icon" style="background:#201015">💳</div><div><h3>LAB 08: Fraud Intelligence</h3><p>UPI Fraud Network Trace</p></div><div style="margin-left:auto;color:#475569">›</div></div>
 </div>
 
-<!-- LAB MODALS -->
-<div id="lab1" class="modal"><div class="top"><b>LAB 01: Phishing Detector</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 10px;border-radius:8px">✕</span></div><div class="tabs"><button class="active">Overview</button><button>Simulator</button></div><div class="sec active"><h3>Phishing Detector Lab</h3><p style="font-size:11px;margin-top:8px;color:#a5b4fc">Fake URL vs Real URL ka farak pakadta hai. facebook.com vs faceb00k.com</p><input id="u1" placeholder="facebook.com / faceb00k-login.tk" style="width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260;margin-top:10px"><button class="btn" style="background:#16a34a;color:white" onclick="run1()">▶ ANALYZE</button><div class="sim" id="o1">> Ready...</div></div></div>
-
-<div id="lab2" class="modal"><div class="top"><b>LAB 02: Malware Scanner</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 10px;border-radius:8px">✕</span></div><div class="sec active"><h3>Malware Scanner</h3><input id="u2" placeholder="free-crack.exe" style="width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260;margin-top:10px"><button class="btn" style="background:#dc2626;color:white" onclick="run2()">▶ SCAN</button><div class="sim" id="o2">> Sandbox ready...</div></div></div>
-
-<div id="lab3" class="modal"><div class="top"><b>LAB 03: SSL Inspector</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 10px;border-radius:8px">✕</span></div><div class="sec active"><h3>SSL Inspector — A+ Grade</h3><input id="u3" placeholder="facebook.com" style="width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260;margin-top:10px"><button class="btn" style="background:#0ea5e9;color:white" onclick="run3()">▶ CHECK SSL</button><div class="sim" id="o3">> SSL engine ready...</div></div></div>
-
-<div id="lab4" class="modal"><div class="top"><b>LAB 04: Reputation Engine</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 10px;border-radius:8px">✕</span></div><div class="sec active"><h3>Reputation — 20yr Trust</h3><input id="u4" placeholder="facebook.com" style="width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260;margin-top:10px"><button class="btn" style="background:#7c3aed;color:white" onclick="run4()">▶ CHECK REPUTATION</button><div class="sim" id="o4">> WHOIS ready...</div></div></div>
-
-<div id="lab5" class="modal"><div class="top"><b>LAB 05: Privacy Auditor</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 10px;border-radius:8px">✕</span></div><div class="sec active"><h3>Privacy — 24 Trackers Found</h3><input id="u5" placeholder="free-movies.com" style="width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260;margin-top:10px"><button class="btn" style="background:#e11d48;color:white" onclick="run5()">▶ AUDIT</button><div class="sim" id="o5">> Tracker DB ready...</div></div></div>
-
-<div id="lab6" class="modal"><div class="top"><b>LAB 06: DNS Analyzer</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 10px;border-radius:8px">✕</span></div><div class="sec active"><h3>DNS — DNSSEC Validated</h3><input id="u6" placeholder="facebook.com" style="width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260;margin-top:10px"><button class="btn" style="background:#eab308;color:black" onclick="run6()">▶ RESOLVE DNS</button><div class="sim" id="o6">> DNS ready...</div></div></div>
-
-<div id="lab7" class="modal"><div class="top"><b>LAB 07: Content Safety</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 10px;border-radius:8px">✕</span></div><div class="sec active"><h3>Content Safety — Clean</h3><textarea id="u7" placeholder="Congratulations you won prize!" style="width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260;margin-top:10px;height:70px"></textarea><button class="btn" style="background:#10b981;color:white" onclick="run7()">▶ SCAN CONTENT</button><div class="sim" id="o7">> NLP ready...</div></div></div>
-
-<div id="lab8" class="modal"><div class="top"><b>LAB 08: Fraud Intelligence</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 10px;border-radius:8px">✕</span></div><div class="sec active"><h3>Fraud — 8 Sites Linked</h3><input id="u8" placeholder="cheap-iphone-store.com" style="width:100%;padding:12px;border-radius:10px;background:#0b102e;color:white;border:1px solid #2a3260;margin-top:10px"><button class="btn" style="background:#e11d48;color:white" onclick="run8()">▶ TRACE FRAUD</button><div class="sim" id="o8">> Fraud DB ready...</div></div></div>
+<div id="lab1" class="modal"><div class="topbar"><b>LAB 01</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px;cursor:pointer">✕</span></div><div class="box"><input id="u1" class="input" placeholder="faceb00k-login.tk"><button class="btn" style="background:#16a34a;color:white" onclick="run1()">▶ ANALYZE</button><div class="sim" id="o1">> Ready for analysis</div></div></div>
+<div id="lab2" class="modal"><div class="topbar"><b>LAB 02</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u2" class="input" placeholder="free-crack.exe"><button class="btn" style="background:#dc2626;color:white" onclick="run2()">▶ SCAN</button><div class="sim" id="o2">> Ready</div></div></div>
+<div id="lab3" class="modal"><div class="topbar"><b>LAB 03</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u3" class="input" placeholder="facebook.com"><button class="btn" style="background:#0ea5e9;color:white" onclick="run3()">▶ CHECK SSL</button><div class="sim" id="o3">> Ready</div></div></div>
+<div id="lab4" class="modal"><div class="topbar"><b>LAB 04</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u4" class="input" placeholder="facebook.com"><button class="btn" style="background:#7c3aed;color:white" onclick="run4()">▶ CHECK REPUTATION</button><div class="sim" id="o4">> Ready</div></div></div>
+<div id="lab5" class="modal"><div class="topbar"><b>LAB 05</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u5" class="input" placeholder="free-movies.com"><button class="btn" style="background:#e11d48;color:white" onclick="run5()">▶ AUDIT</button><div class="sim" id="o5">> Ready</div></div></div>
+<div id="lab6" class="modal"><div class="topbar"><b>LAB 06</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u6" class="input" placeholder="facebook.com"><button class="btn" style="background:#eab308;color:black" onclick="run6()">▶ RESOLVE DNS</button><div class="sim" id="o6">> Ready</div></div></div>
+<div id="lab7" class="modal"><div class="topbar"><b>LAB 07</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><textarea id="u7" class="input" style="height:60px" placeholder="You won lottery! Send UPI..."></textarea><button class="btn" style="background:#10b981;color:white" onclick="run7()">▶ SCAN TEXT</button><div class="sim" id="o7">> Ready</div></div></div>
+<div id="lab8" class="modal"><div class="topbar"><b>LAB 08</b><span onclick="closeLab()" style="background:#1e2450;padding:6px 12px;border-radius:8px">✕</span></div><div class="box"><input id="u8" class="input" placeholder="cheap-iphone-store.com"><button class="btn" style="background:#e11d48;color:white" onclick="run8()">▶ TRACE FRAUD</button><div class="sim" id="o8">> Ready</div></div></div>
 
 <script>
 function openLab(id){document.getElementById(id).classList.add('active')}
 function closeLab(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('active'))}
-function run1(){let u=document.getElementById('u1').value;let o=document.getElementById('o1');o.textContent='> Analyzing '+u+'...';setTimeout(()=>{o.textContent+= /faceb00k|tk/.test(u)?'\n🔴 PHISHING — Score 12/100':'\n🟢 SAFE — Score 96/100';},800)}
-function run2(){let u=document.getElementById('u2').value;let o=document.getElementById('o2');o.textContent='> Scanning '+u+'...';setTimeout(()=>{o.textContent+=/exe|crack/.test(u)?'\n🔴 MALWARE — Trojan':'\n🟢 CLEAN';},800)}
-function run3(){let o=document.getElementById('o3');o.textContent='> Checking SSL...';setTimeout(()=>{o.textContent+='\n🟢 A+ — TLS 1.3 — DigiCert';},800)}
-function run4(){let o=document.getElementById('o4');o.textContent='> WHOIS check...';setTimeout(()=>{o.textContent+='\n🟢 20 years old — Trusted';},800)}
-function run5(){let o=document.getElementById('o5');o.textContent='> Scanning trackers...';setTimeout(()=>{o.textContent+='\n🔴 24 Trackers — High Risk';},800)}
-function run6(){let o=document.getElementById('o6');o.textContent='> Resolving DNS...';setTimeout(()=>{o.textContent+='\n🟢 DNSSEC OK — 157.240.0.0';},800)}
-function run7(){let u=document.getElementById('u7').value;let o=document.getElementById('o7');o.textContent='> NLP scan...';setTimeout(()=>{o.textContent+=/won|prize|congratulations/i.test(u)?'\n🔴 SCAM — 89% toxicity':'\n🟢 CLEAN';},800)}
-function run8(){let o=document.getElementById('o8');o.textContent='> Tracing network...';setTimeout(()=>{o.textContent+='\n🔴 FRAUD RING — 8 shops same UPI';},800)}
+function run1(){let u=document.getElementById('u1').value,o=document.getElementById('o1');o.textContent='> Scanning '+u+'...\n> Checking homograph...';setTimeout(()=>{o.textContent+=/0|tk|faceb00k/.test(u)?'\n\n🔴 PHISHING DETECTED\nRisk: 92/100\nAction: BLOCK':'\n\n🟢 SAFE\nTrust: 96/100';},700)}
+function run2(){let o=document.getElementById('o2');o.textContent='> Sandbox start...';setTimeout(()=>{o.textContent+='\n\n🔴 MALWARE: Trojan.FakeAV\nIsolated ✓';},700)}
+function run3(){let o=document.getElementById('o3');o.textContent='> TLS handshake...';setTimeout(()=>{o.textContent+='\n\n🟢 Grade A+ | TLS 1.3\nValid ✓';},700)}
+function run4(){let o=document.getElementById('o4');o.textContent='> WHOIS...';setTimeout(()=>{o.textContent+='\n\n🟢 Age 20yr | Trusted';},700)}
+function run5(){let o=document.getElementById('o5');o.textContent='> Privacy scan...';setTimeout(()=>{o.textContent+='\n\n🔴 24 Trackers found';},700)}
+function run6(){let o=document.getElementById('o6');o.textContent='> DNS query...';setTimeout(()=>{o.textContent+='\n\n🟢 DNSSEC Validated';},700)}
+function run7(){let u=document.getElementById('u7').value,o=document.getElementById('o7');o.textContent='> NLP scan...';setTimeout(()=>{o.textContent+=/won|lottery|UPI/i.test(u)?'\n\n🔴 SCAM 89%':'\n\n🟢 Clean';},700)}
+function run8(){let o=document.getElementById('o8');o.textContent='> Tracing UPI ring...';setTimeout(()=>{o.textContent+='\n\n🔴 FRAUD RING: 8 fake shops\nSame UPI ID';},700)}
 </script>
-</body></html>
+</body>
+</html>
