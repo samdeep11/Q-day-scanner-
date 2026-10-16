@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAB 04: Reputation Engine</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#0b102e;color:#e2e8f0}
+.h{padding:14px 16px;background:#151c4a;display:flex;justify-content:space-between;position:sticky;top:0;z-index:20}
+.tabs{display:flex;overflow-x:auto;gap:8px;padding:10px;background:#121844}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex-shrink:0;background:#1e2450;border:1px solid #2a3260;color:#8a94c7;padding:8px 14px;border-radius:20px;font-size:11px}
+.tabs button.active{background:#a78bfa;color:#000;border-color:#a78bfa;font-weight:700}
+.card{background:#1a2050;margin:12px;border-radius:18px;padding:18px;border:1px solid #2a3260}
+.score{font-size:42px;font-weight:900;color:#a78bfa}
+.sim{background:#141025;border-radius:12px;padding:12px;margin-top:12px;font-family:monospace;font-size:11px;color:#c4b5fd;border:1px solid #2a1f4a;white-space:pre-line;min-height:70px}
+.btn{width:100%;padding:13px;border-radius:12px;border:0;font-weight:800;margin-top:10px;font-size:13px;cursor:pointer}
+.btn-p{background:#7c3aed;color:white}
+.btn-d{background:#232a60;color:white}
+.bar{height:8px;background:#1e2450;border-radius:10px;margin:6px 0;overflow:hidden}
+.bar div{height:100%;background:#a78bfa}
+.sec{display:none}.sec.active{display:block}
+</style>
+</head><body>
+<div class="h"><b>🌐 LAB 04: Reputation Engine<br><span style="font-size:9px;color:#8a94c7">Domain Trust & History Lab</span></b><span onclick="location.href='dashboard.html'" style="background:#1e2450;padding:6px 10px;border-radius:8px">✕</span></div>
+
+<div class="tabs">
+<button class="active" onclick="tab('overview',this)">Overview</button>
+<button onclick="tab('fusion',this)">Fusion</button>
+<button onclick="tab('sim',this)">Simulator</button>
+<button onclick="tab('exp',this)">Experiments</button>
+<button onclick="tab('research',this)">Research</button>
+<button onclick="tab('score',this)">Score</button>
+<button onclick="tab('risk',this)">Risk</button>
+<button onclick="tab('roadmap',this)">Roadmap</button>
+</div>
+
+<div id="overview" class="sec active">
+<div class="card">
+<h3>Overview — Purpose</h3>
+<p style="font-size:11px;margin-top:8px;line-height:18px;color:#a5b4fc">Reputation Engine domain ka age, WHOIS, blacklist history, aur trust score check karta hai. Naya domain + hidden WHOIS = 99% phishing ka sign hai.</p>
+<div style="margin-top:14px;display:flex;align-items:center;gap:12px"><div class="score">89</div><div><b style="color:#a78bfa">HIGH TRUST • 15 Years Old</b><br><span style="font-size:10px;color:#8a94c7">facebook.com • Created 2004</span></div></div>
+</div>
+</div>
+
+<div id="fusion" class="sec">
+<div class="card">
+<h3>Technology Fusion</h3>
+<div style="font-size:11px;line-height:20px;margin-top:8px">
+<b style="color:#a78bfa">Fusion Logic:</b><br>
+1. <b>Domain Age (40%)</b> — 1 day old = Suspicious<br>
+2. <b>WHOIS Data (30%)</b> — Hidden = Risk<br>
+3. <b>Blacklist Check (30%)</b> — VirusTotal, Spamhaus<br><br>
+<div style="background:#121844;padding:10px;border-radius:10px">facebook.com = 20yr = Trusted | faceb00k-login.tk = 2 days = Scam</div>
+</div>
+</div>
+</div>
+
+<div id="sim" class="sec">
+<div class="card">
+<h3>Interactive Simulator — Reputation Check</h3>
+<input id="url" placeholder="Test: facebook.com / new-scam-site-2026.tk" style="width:100%;padding:12px;border-radius:10px;border:1px solid #2a3260;background:#0b102e;color:white;margin-top:10px">
+<button class="btn btn-p" onclick="runSim()">▶ CHECK REPUTATION</button>
+<div class="sim" id="simOut">> Reputation Engine ready...\n> Sources: WHOIS, Archive.org, Blacklists\n> Engine: rep_v2026.4</div>
+<button class="btn btn-d" onclick="document.getElementById('url').value='faceb00k-secure-login.tk';runSim()">Try Example: faceb00k-secure-login.tk</button>
+</div>
+</div>
+
+<div id="exp" class="sec">
+<div class="card">
+<h3>Experiment Center</h3>
+<button class="btn btn-d" onclick="alert('Exp 1: Domain age 2 days hai, kal hi bana hai. 100% scam pattern.')">🧪 Exp 1: New Domain Trap</button>
+<button class="btn btn-d" onclick="alert('Exp 2: WHOIS hidden hai, owner ne privacy lagayi hai. Legit companies nahi chupati.')">🧪 Exp 2: Hidden WHOIS</button>
+<button class="btn btn-d" onclick="alert('Exp 3: Ye domain pehle 5 baar blacklist hua hai Spamhaus me.')">🧪 Exp 3: Blacklist History</button>
+</div>
+</div>
+
+<div id="research" class="sec">
+<div class="card">
+<h3>Research Explorer</h3>
+<div style="font-size:11px;line-height:22px;margin-top:8px">
+📄 ICANN — Domain age vs phishing study<br>
+📄 Spamhaus — Blacklist database 2024<br>
+📄 Wayback Machine — Domain history tracking<br>
+</div>
+</div>
+</div>
+
+<div id="score" class="sec">
+<div class="card">
+<h3>Innovation Score</h3>
+<div style="font-size:11px;margin-top:10px">
+Domain Age Analysis<div class="bar"><div style="width:95%"></div></div>
+WHOIS Trust<div class="bar"><div style="width:88%"></div></div>
+Blacklist Accuracy<div class="bar"><div style="width:92%"></div></div><br>
+<div style="background:#121844;padding:12px;border-radius:10px;text-align:center"><b style="font-size:18px;color:#a78bfa">91/100 — HIGH ACCURACY</b></div>
+</div>
+</div>
+</div>
+
+<div id="risk" class="sec">
+<div class="card">
+<h3>Risk Analyzer</h3>
+<div style="font-size:11px;line-height:20px;margin-top:8px">
+<span style="color:#4ade80">✅ Safe: Public WHOIS only, no private leak</span><br>
+<span style="color:#fbbf24">⚠️ Limitation: New TLDs (.tk, .ml) ka data kam milta hai</span><br>
+<span style="color:#8a94c7">ℹ️ Tip: Age + WHOIS + Blacklist = Best combo</span>
+</div>
+</div>
+</div>
+
+<div id="roadmap" class="sec">
+<div class="card">
+<h3>Future Roadmap</h3>
+<div style="font-size:11px;line-height:24px;margin-top:8px">
+<b>2026 Q2:</b> Archive.org integration<br>
+<b>2026 Q3:</b> Social trust signals (reviews)<br>
+<b>2027:</b> AI predicts scam domain before creation<br>
+</div>
+</div>
+</div>
+
+<script>
+function tab(id,el){
+document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+el.classList.add('active');
+}
+function runSim(){
+let u=document.getElementById('url').value.trim();
+let out=document.getElementById('simOut');
+if(!u){out.textContent='> Enter domain';return}
+out.textContent='> Querying WHOIS for '+u+'\n> Checking archive history...\n> Scanning 12 blacklists...';
+setTimeout(()=>{
+let isBad = /tk|ml|faceb00k|secure-login/.test(u);
+out.textContent += '\n\n'+ (isBad ? '🔴 LOW REPUTATION\n> Age: 2 days (Created: 2 days ago)\n> WHOIS: Hidden / Privacy\n> Blacklists: Found in 2 lists\n> Score: 12/100 — SCAM' : '🟢 HIGH REPUTATION\n> Age: 20 years (2004)\n> WHOIS: Meta Platforms Inc\n> Blacklists: Clean (0/12)\n> Score: 96/100 — TRUSTED');
+},1000);
+}
+</script>
+</body></html>
