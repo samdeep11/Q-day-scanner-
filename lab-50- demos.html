@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAB 22: Quantum AI + Blockchain AI Lab</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#050a1f;color:#e2e8f0}
+.header{padding:12px 14px;background:#10153a;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;border-bottom:1px solid #2a3260}
+.wrap{max-width:900px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+.box{background:#151c4a;border:1px solid #2a3260;border-radius:16px;padding:18px}
+.box h2{font-size:15px;margin-bottom:8px;color:#4ade80}
+.box p{font-size:12.5px;color:#cbd5e1;line-height:1.7}
+.input{width:100%;padding:12px;border-radius:10px;border:1px solid #2a3260;background:#0b102e;color:white;margin:8px 0}
+.btn{padding:12px 20px;border-radius:30px;border:none;font-weight:800;cursor:pointer;color:white}
+.result{margin-top:10px;padding:12px;border-radius:10px;background:#0b102e;border:1px dashed #2a3260;font-size:12px;line-height:1.7}
+.home{color:#4ade80;font-size:11px;font-weight:800;text-decoration:none;border:1px solid #2a3260;padding:8px 14px;border-radius:20px;background:#1e2450}
+.block{font-family:monospace;background:#0b102e;border:1px solid #22c55e;padding:10px;border-radius:8px;margin:6px 0;font-size:11px}
+</style>
+</head><body>
+<div class="header"><div><b>LAB 22: QUANTUM AI + BLOCKCHAIN AI</b><br><span style="font-size:9px;color:#8a94c7">Separate Page - Future Tech 2026</span></div><a href="index.html" class="home">HOME</a></div>
+<div class="wrap">
+<div class="box" style="border-color:#fbbf24;text-align:center"><h2>QUANTUM AI + BLOCKCHAIN AI LAB</h2><p>Future Technology - Live Demo Page - Separate from 20 Labs</p></div>
+
+<div class="box" style="border-color:#8b5cf6"><h2>DEMO 1: Quantum Key Generator</h2><p>Enter your name to generate quantum key (Qubit simulation)</p><input id="qName" class="input" placeholder="Enter name - Rahul"><button class="btn" style="background:#8b5cf6" onclick="genQ()">Generate Quantum Key</button><div id="qResult" class="result">Quantum key will appear here...</div></div>
+
+<div class="box" style="border-color:#22c55e"><h2>DEMO 2: Blockchain Block</h2><p>Blockchain is tamper-proof. Try to add and hack.</p><input id="bData" class="input" placeholder="Enter transaction - Rahul pays 500"><button class="btn" style="background:#22c55e" onclick="addB()">Add Block</button><button class="btn" style="background:#1e2450;border:1px solid #ef4444;color:#fca5a5" onclick="hackB()">Try to Hack</button><div id="bChain" class="result"><div class="block">GENESIS BLOCK - Hash: 0000a1b2</div></div></div>
+
+<div class="box" style="border-color:#f59e0b"><h2>DEMO 3: Quantum AI Fraud Check</h2><input id="upi" class="input" placeholder="Enter UPI - rbi-official@okaxis"><button class="btn" style="background:#f59e0b;color:black" onclick="checkU()">Quantum Check</button><div id="qAIResult" class="result">Result will appear here - 0.001s check</div></div>
+
+<div class="box" style="text-align:center"><button class="btn" style="background:linear-gradient(90deg,#16a34a,#22c55e)" onclick="done()">Complete Lab 22 + 15 Points</button><div id="score" style="margin-top:8px;color:#4ade80;font-weight:800"></div><br><a href="index.html" class="home">Back to Home</a> <a href="dashboard.html" class="home">Dashboard</a></div>
+</div>
+<script>
+let chain=["0000a1b2"];
+function genQ(){let n=document.getElementById('qName').value||'User';let k='Q-'+btoa(n).slice(0,6)+'-'+Math.random().toString(36).toUpperCase().slice(2,8);document.getElementById('qResult').innerHTML='Quantum Key: <b style=color:#c4b5fd>'+k+'</b><br>Qubits: 5 qubits = 32 states at same time<br>Unbreakable: 100 years to hack';}
+function addB(){let d=document.getElementById('bData').value;if(!d)return alert('Enter transaction');let prev=chain[chain.length-1];let h='000'+btoa(prev+d).slice(0,6);chain.push(h);let div=document.createElement('div');div.className='block';div.innerHTML='BLOCK #'+(chain.length-1)+': '+d+' | Hash: <b style=color:#4ade80>'+h+'</b> | Verified';document.getElementById('bChain').appendChild(div);}
+function hackB(){document.getElementById('bChain').innerHTML+='<div class=block style=border-color:#ef4444;color:#fca5a5>ALERT: Tamper detected! Hash mismatch! Chain broken! AI blocked fraud!</div>';}
+function checkU(){let u=document.getElementById('upi').value;let fake=/rbi|gov|official/i.test(u);let t=(Math.random()*0.002).toFixed(4);document.getElementById('qAIResult').innerHTML='Scan Time: '+t+' sec<br>Blockchain: '+(fake?'Not Found':'Verified')+'<br>AI Risk: '+(fake?'98% FRAUD - BLOCKED':'5% SAFE - ALLOWED');}
+function done(){let s=parseInt(localStorage.getItem('totalScore')||0)+15;localStorage.setItem('totalScore',s);document.getElementById('score').innerHTML='Completed! Total Score: '+s;}
+</script>
+</body></html>
