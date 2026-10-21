@@ -5,7 +5,7 @@
 
 **Live Demo:** https://convergence-master.vercel.app
 
-Built in India by **Sandeep** | Bilsanda, Bareilly UP | Learning Project
+Built in India by **Sandeep** Mathura, UP INDIA | Learning Project
 
 ### ✨ What it does?
 - Scans any website for Quantum vulnerabilities
