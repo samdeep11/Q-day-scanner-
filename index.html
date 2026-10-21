@@ -2,43 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CONVERGENCE MASTER - Protected</title>
+<title>CONVERGENCE MASTER - Protected Learning</title>
 <script src="https://cdn.tailwindcss.com"></script>
-
-<!-- 🔒 ANTI-COPY PROTECTION -->
 <script>
-// Right Click Band
-document.addEventListener('contextmenu', e => {
-  e.preventDefault();
-  alert('⚠️ Protected - CONVERGENCE MASTER © Sandeep');
-  return false;
-});
-// Copy Band
-document.addEventListener('copy', e => {
-  e.preventDefault();
-  alert('⚠️ Copy Not Allowed - Learning Project');
-});
-// F12 / Ctrl+U / Ctrl+Shift+I Band
-document.onkeydown = function(e) {
-  if(e.keyCode==123 || (e.ctrlKey && e.shiftKey && (e.keyCode==73 || e.keyCode==74 || e.keyCode==67)) || (e.ctrlKey && e.keyCode==85)) {
-    alert('⚠️ Code Protected by Sandeep!');
-    return false;
-  }
+// 🔒 COPY PROTECTION
+document.addEventListener('contextmenu', e => { e.preventDefault(); alert('🔒 Protected © Sandeep'); });
+document.addEventListener('copy', e => { e.preventDefault(); alert('⚠️ Copy Disabled'); });
+document.onkeydown = function(e){
+  if(e.keyCode==123 || (e.ctrlKey && e.shiftKey && (e.keyCode==73||e.keyCode==74||e.keyCode==67)) || (e.ctrlKey && e.keyCode==85)){ alert('🔒 Protected Code!'); return false; }
 };
-document.addEventListener('selectstart', e => {
-  if(e.target.tagName!='INPUT' && e.target.tagName!='SELECT') e.preventDefault();
-});
+document.addEventListener('selectstart', e => { if(e.target.tagName!='INPUT' && e.target.tagName!='SELECT') e.preventDefault(); });
 </script>
 <style>
-* { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-input, select, textarea { -webkit-user-select: text !important; user-select: text !important; }
+*{user-select:none;-webkit-user-select:none}
+input,select{user-select:text !important;-webkit-user-select:text !important}
 </style>
 </head>
 <body style="background:#060a1f;color:#e2e8f0">
 
-<!-- WATERMARK -->
-<div style="position:fixed;bottom:35%;left:5%;opacity:0.05;font-size:70px;transform:rotate(-30deg);pointer-events:none;z-index:9999;font-weight:bold;color:white">CONVERGENCE MASTER © Sandeep</div>
-<div style="position:fixed;top:50%;right:5%;opacity:0.04;font-size:50px;transform:rotate(30deg);pointer-events:none;z-index:9999;color:#4ade80">BILISANDA BAREILLY</div>
+<!-- ✅ VISIBLE WATERMARK -->
+<div style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9990;background:repeating-linear-gradient(-45deg, transparent 0 180px, rgba(74,222,128,0.04) 180px 181px);"></div>
+<div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-28deg);pointer-events:none;z-index:9999;text-align:center">
+<div style="color:rgba(255,255,255,0.09);font-size:56px;font-weight:900;letter-spacing:2px">CONVERGENCE</div>
+<div style="color:rgba(74,222,128,0.10);font-size:38px;font-weight:900;margin-top:-10px">MASTER</div>
+<div style="color:rgba(255,255,255,0.08);font-size:18px;font-weight:bold;margin-top:6px;border:1px solid rgba(255,255,255,0.08);padding:4px 14px;border-radius:20px;display:inline-block">© SANDEEP BILISANDA BAREILLY</div>
+</div>
 
 <header style="position:sticky;top:0;z-index:50;background:#080e2c;border-bottom:1px solid #312e81;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
 <b style="color:#4ade80">🛡️ CONVERGENCE MASTER 🔒</b>
@@ -52,11 +40,12 @@ input, select, textarea { -webkit-user-select: text !important; user-select: tex
 </nav>
 </header>
 
-<div style="background:#1a0000;border-top:2px solid red;border-bottom:2px solid red;padding:6px;text-align:center;font-size:11px">🚨 PROTECTED | Bareilly UP | Copy Disabled | 50 Labs Active</div>
+<div style="background:#1a0000;border-top:2px solid red;border-bottom:2px solid red;padding:6px;text-align:center;font-size:11px">🚨 PROTECTED • BAREILLY UP • COPY DISABLED • 50 LABS LIVE</div>
 
-<div style="max-width:1000px;margin:20px auto;padding:16px;text-align:center">
-<h1 style="color:#4ade80;font-size:28px;font-weight:bold">Learn Cybersecurity with<br><span style="color:#a7f3d0">50 Labs + Quantum Safe 🔒</span></h1>
-<p style="color:#a5b4fc;font-size:11px;margin-top:6px">Protected Learning Project - By Sandeep</p>
+<div style="max-width:1000px;margin:20px auto;padding:16px;text-align:center;position:relative;z-index:1">
+
+<h1 style="color:#4ade80;font-size:28px;font-weight:bold;line-height:1.2">Learn Cybersecurity<br><span style="color:#a7f3d0">50 Labs + Quantum Safe 🔒</span></h1>
+<p style="color:#a5b4fc;font-size:11px;margin-top:6px">UPI Fraud + QR Scam + Quantum • Protected Learning Project</p>
 
 <div style="margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
 <a href="lab-50-demos.html" style="padding:10px 20px;border-radius:20px;background:#22c55e;color:white;text-decoration:none;font-weight:bold;font-size:13px">🚀 OPEN 50 LABS</a>
@@ -64,50 +53,55 @@ input, select, textarea { -webkit-user-select: text !important; user-select: tex
 </div>
 
 <div style="margin-top:18px;background:#141e50;border-radius:16px;padding:16px;text-align:left">
-<h3 style="font-weight:bold;color:white;font-size:14px">🎓 Certificate Verification (Quantum Safe)</h3>
+<h3 style="font-weight:bold;color:white;font-size:14px">🎓 Certificate Verification</h3>
 <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
 <select id="board" style="padding:8px;border-radius:8px;background:black;border:1px solid #4338ca;color:white;font-size:12px"><option>UP Board</option><option>CBSE</option><option>AKTU</option></select>
-<input id="certId" placeholder="Enter Cert No" style="flex:1;padding:8px;border-radius:8px;background:black;border:1px solid #4338ca;color:white;font-size:12px">
+<input id="certId" placeholder="Cert No - UP2026XXXX" style="flex:1;padding:8px;border-radius:8px;background:black;border:1px solid #4338ca;color:white;font-size:12px">
 <button onclick="verifyCert()" style="padding:8px 16px;border-radius:20px;background:#22c55e;color:white;font-size:12px;border:none;font-weight:bold">Verify</button>
 </div>
-<div id="certResult" style="margin-top:12px;background:black;padding:10px;border-radius:8px;font-size:12px;min-height:40px"></div>
+<div id="certResult" style="margin-top:12px;background:black;padding:10px;border-radius:8px;font-size:12px;min-height:40px;color:#86efac">Enter certificate to verify...</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px;text-align:left">
+<div style="background:#0f172a;border:1px solid #1e293b;border-radius:12px;padding:12px"><b style="color:#4ade80;font-size:13px">🔍 UPI Fraud Lab</b><p style="font-size:11px;color:#94a3b8;margin-top:4px">@ybl, @okaxis check - 10 live demos</p></div>
+<div style="background:#0f172a;border:1px solid #1e293b;border-radius:12px;padding:12px"><b style="color:#facc15;font-size:13px">📷 QR Scam Lab</b><p style="font-size:11px;color:#94a3b8;margin-top:4px">Hidden link detection - Practical</p></div>
+<div style="background:#0f172a;border:1px solid #1e293b;border-radius:12px;padding:12px"><b style="color:#a5b4fc;font-size:13px">⚛️ Quantum Safe</b><p style="font-size:11px;color:#94a3b8;margin-top:4px">Q-Day + Dilithium + Kyber</p></div>
 </div>
 
 <div style="margin-top:20px;background:#1e1b4b;border-radius:16px;padding:16px;text-align:left;border:1px solid #4338ca">
-<b style="color:#fde047">🧑‍🎓 Student Wall</b>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-top:10px">
-<div style="background:black;border-radius:10px;padding:10px"><b style="font-size:12px">Rahul, Bareilly</b><br><span style="font-size:10px;color:#4ade80">12 Labs | 92%</span></div>
-<div style="background:black;border-radius:10px;padding:10px"><b style="font-size:12px">Priya, Mathura</b><br><span style="font-size:10px;color:#4ade80">20 Labs | 88%</span></div>
-<div style="background:black;border-radius:10px;padding:10px"><b style="font-size:12px">Aman, AKTU</b><br><span style="font-size:10px;color:#4ade80">50 Labs | Topper</span></div>
+<b style="color:#fde047">🧑‍🎓 Student Wall - Learning Leaders</b>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:10px">
+<div style="background:black;border-radius:10px;padding:10px"><b style="font-size:12px;color:white">Rahul, Bareilly</b><br><span style="font-size:10px;color:#4ade80">12 Labs • 92%</span></div>
+<div style="background:black;border-radius:10px;padding:10px"><b style="font-size:12px;color:white">Priya, Mathura</b><br><span style="font-size:10px;color:#4ade80">20 Labs • 88%</span></div>
+<div style="background:black;border-radius:10px;padding:10px"><b style="font-size:12px;color:white">Aman, AKTU</b><br><span style="font-size:10px;color:#4ade80">50 Labs • Topper</span></div>
 </div>
 </div>
 
 <div style="margin-top:14px;background:#0f172a;border-radius:16px;padding:16px;text-align:left;border:1px solid #1e293b">
-<b style="color:#22d3ee">📰 Cyber News</b>
+<b style="color:#22d3ee">📰 Cyber Awareness News</b>
 <div style="margin-top:8px;display:flex;flex-direction:column;gap:6px;font-size:11px">
-<div style="background:#111827;padding:8px;border-radius:8px;border-left:3px solid #ef4444"><b style="color:white">UPI Fraud 40% Fake @ybl IDs</b> - Lab #3 me sikho</div>
-<div style="background:#111827;padding:8px;border-radius:8px;border-left:3px solid #eab308"><b style="color:white">QR Sticker Scam - Mathura Alert</b> - Lab #11</div>
-<div style="background:#111827;padding:8px;border-radius:8px;border-left:3px solid #4ade80"><b style="color:white">Q-Day 2030 - NIST Dilithium</b> - Lab #45</div>
+<div style="background:#111827;padding:8px;border-radius:8px;border-left:3px solid #ef4444"><b style="color:white">UPI Fraud 40% Fake @ybl IDs</b> <span style="color:#94a3b8">- Lab #3</span></div>
+<div style="background:#111827;padding:8px;border-radius:8px;border-left:3px solid #eab308"><b style="color:white">QR Sticker Scam - Mathura Alert</b> <span style="color:#94a3b8">- Lab #11</span></div>
+<div style="background:#111827;padding:8px;border-radius:8px;border-left:3px solid #4ade80"><b style="color:white">Q-Day 2030 - NIST Dilithium</b> <span style="color:#94a3b8">- Lab #45</span></div>
 </div>
 </div>
 
-<div style="margin-top:14px;padding:10px;border:1px dashed #22c55e;border-radius:12px;font-size:11px;color:#86efac">✅ Protected Learning Project | © Sandeep Bilsanda | Copy Disabled</div>
+<div style="margin-top:14px;padding:10px;border:1px dashed #22c55e;border-radius:12px;font-size:11px;color:#86efac">✅ 100% Learning Project | No OTP | No Data | © Sandeep Bilsanda Bareilly | Protected</div>
 </div>
 
-<footer style="border-top:1px solid #312e81;margin-top:20px;padding:16px;text-align:center;color:#6366f1;font-size:11px">CONVERGENCE MASTER 🔒 Protected | samdeep11 | Vercel Live</footer>
+<footer style="border-top:1px solid #312e81;margin-top:20px;padding:16px;text-align:center;color:#6366f1;font-size:11px;position:relative;z-index:1">CONVERGENCE MASTER 🔒 Protected | samdeep11 | Vercel Live • Watermark Enabled</footer>
 
 <script>
 function verifyCert(){
   var board=document.getElementById('board').value;
-  var id=document.getElementById('certId').value||'12345678';
+  var id=document.getElementById('certId').value||'UP2026DEMO';
   var box=document.getElementById('certResult');
-  var hash='0x'+id.split('').reduce(function(a,c){return a+c.charCodeAt(0)},0).toString(16)+'a1b2c3d4e5f6';
+  var hash='0x'+id.split('').reduce(function(a,c){return a+c.charCodeAt(0)},0).toString(16)+'a1b2c3d4e5f6c7';
   var blockNo = Math.floor(Math.random()*900000)+100000;
-  box.innerHTML = '<div><b style="color:white">'+board+'</b><br>ID: '+id+'<br><br>Hash: <span style="color:#4ade80;word-break:break-all">'+hash+'</span><br><br><span style="color:#4ade80">✅ Authentic - Protected (Demo)</span><br><span style="color:#a5b4fc;font-size:11px">Block #'+blockNo+' | Signed by Sandeep</span></div>';
+  box.innerHTML = '<b style="color:white">'+board+' - '+id+'</b><br><br>Hash: <span style="color:#4ade80;word-break:break-all">'+hash+'</span><br><br><span style="color:#4ade80">✅ Authentic - Protected Demo</span><br><span style="color:#a5b4fc;font-size:11px">Block #'+blockNo+' | Quantum Signed by Sandeep</span>';
 }
-// Extra - Source hide
 console.clear();
-console.log('%c🔒 Protected by CONVERGENCE MASTER', 'color:red;font-size:20px');
+console.log('%c🔒 PROTECTED - CONVERGENCE MASTER © Sandeep Bareilly', 'color:#22c55e;font-size:16px;font-weight:bold');
 </script>
 </body>
 </html>
