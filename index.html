@@ -153,12 +153,12 @@ r.innerHTML=`Analyzing: ${v}<br><br>→ Classical RSA Hash: <span class='text-re
 document.getElementById('qStatus').innerText='Protected - Quantum Resistant';
 }
 function verifyCert(){
-const board=document.getElementById('board').value;
-const id=document.getElementById('certId').value||'12345678';
-const box=document.getElementById('certResult');
-const hash='0x'+Array.from(id).reduce((a,c)=>a+c.charCodeAt(0),0).toString(16).padStart(64,'0');
-box.innerHTML=`<div><b class='text-white'>${board} Verification</b><br>ID: ${id}<br><br>Blockchain Hash:<br><span class='text-green-400 text-[11px] break-all'>${hash}</span><br><br><span class='text-green-400'>✅ Certificate Found on Chain - Authentic</span><br><span class='text-indigo-300 text-[11px]'>Block #${Math.floor(Math.random()*900000)+100000} | Post-Quantum Signed</span></div>`;
+  const board=document.getElementById('board').value;
+  const id=document.getElementById('certId').value||'12345678';
+  const box=document.getElementById('certResult');
+  const hash='0x'+Array.from(id).reduce((a,c)=>a+c.charCodeAt(0),0).toString(16).padStart(64,'0');
+  const blockNo = Math.floor(Math.random()*900000)+100000;
+  box.innerHTML = '<div><b style="color:white">'+board+' Verification</b><br>ID: '+id+'<br><br>Blockchain Hash:<br><span style="color:#4ade80;font-size:11px;word-break:break-all">'+hash+'</span><br><br><span style="color:#4ade80">✅ Certificate Found on Chain - Authentic</span><br><span style="color:#a5b4fc;font-size:11px">Block #'+blockNo+' | Post-Quantum Signed</span></div>';
 }
-</script>
 </body>
 </html>
